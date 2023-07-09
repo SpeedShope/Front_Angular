@@ -1,0 +1,28 @@
+<app-header></app-header>
+<div class="search-bar">
+  <input type="text" [(ngModel)]="productUrl" placeholder="Product URL">
+  <a  class="btn btn-primary" (click)="getSimilarProducts()">Search</a>
+</div>
+<div class="container">
+  <div class="row">
+  
+    
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-4" *ngFor="let tender of tenders">
+          <div class="card mb-9">
+            <img class="card-img-top" src="http://localhost:9090/images/{{tender.name}}.png" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{ tender.name }}</h5>
+             
+            
+              <a href="#" class="btn btn-primary"[routerLink]="['/detailtender',tender.id]">View Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

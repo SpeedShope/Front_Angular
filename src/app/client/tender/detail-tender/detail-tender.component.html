@@ -1,0 +1,128 @@
+
+<app-header></app-header>
+
+<body>
+    <div id="layoutAuthentication">
+        <div id="layoutAuthentication_content">
+            <main>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-7">
+                            <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                <div class="card-header"><h3 class="text-center font-weight-light my-4">tender</h3></div>
+                                <div class="card-body">
+                                    <form
+    
+                        #f="ngForm"
+                
+                      >
+                  <div>
+                    <img class="card-img-top" src="http://localhost:9090/images/{{tend.name}}.png" alt="Card image cap">
+
+                    <div class="container" style="display: grid;align-items: center; justify-content: center; ">
+                      <div class="justify-content-center" style="display: grid;align-items: center; justify-content: center; ">
+                    <div class="form-group
+                    
+                    
+                    ">
+                    </div>
+                    
+                     
+                   </div>
+                     
+           
+                 <div class="form-group">
+                      <div class="form-group">
+                        <label for="dateTender">Name:</label>
+                       <a style="font-size: larger; font-weight: bolder; font-style: oblique; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-variant: initial;">{{tend.name}}</a>
+                       
+                      </div>
+                    </div>
+                      <div class="form-group">
+                        <label for="dateTender">Description:</label>
+                      <a style="font-size: larger; font-weight: bolder; font-style: oblique; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-variant: initial;"> {{tend.description}}</a> 
+                      </div>
+                  
+                  <div>
+                        <div class="form-group">
+                          <label for="dateTender">Quantity:</label>
+                          <a style="font-size: larger; font-weight: bolder; font-style: oblique; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-variant: initial;"> {{tend.quantity}}</a> 
+                        </div>
+                    </div>
+                        <div>
+                        
+                          <label for="dateTender">Brand:</label>
+                          <a style="font-size: larger; font-weight: bolder; font-style: oblique; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-variant: initial;"> {{tend.brand}}</a> 
+                         
+                        </div>
+                      </div>
+                    </div>
+                        <div class="form-group" >
+                          <label for="dateTender">date Tender:</label>
+                          <a style="font-size: larger; font-weight: bolder; font-style: oblique; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-variant: initial;"> {{tend.dateTender}}</a> 
+                        </div>   
+                        <ul class="tender-comments">
+                            
+                            <li *ngFor="let comments of tend.comments">
+                              <p class="comment-message">{{ comments.message }}</p>
+                              <ng-container>
+                              
+                                <button  class="fa fa-trash" (click)="delete(comments.id)">
+                                  
+                                  </button> 
+                                                                                      </ng-container>
+                            </li>
+                        </ul>
+                        <div class="form-group">
+                            <label for="comment">add a comment</label>
+                            <input
+                            type="text"
+                            class="form-control"
+                            name="comment.message"
+                            #name="ngModel" [(ngModel)]="comment.message" 
+                           
+                          />                          
+                     
+                          <button type="submit" class="btn btn-primary" (click)="onSubmit()" > Add</button>
+                        </div>
+                        <button type="submit" class="btn btn-primary" (click)="deletetender(tend.id)" [routerLink]="['/gettender']" > supprime tender</button>
+                        <button href="#" class="btn btn-primary"  [routerLink]="['/updatetender',tend.id]" > update tender</button>
+                  
+                  
+                        
+                        
+
+                          
+                        
+                         
+                         
+                         
+                        
+                       
+
+                     
+                       <!-- --> 
+              
+                   <!-- --> 
+                    
+                  
+                
+                      </form>
+
+                   
+                
+                                </div>
+                                <div class="card-footer text-center py-3">
+                                   
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        
+        <app-footer></app-footer>
+    </div>
+</body>
