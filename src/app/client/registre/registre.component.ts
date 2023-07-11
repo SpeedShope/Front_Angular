@@ -56,7 +56,7 @@ export class RegistreComponent {
           console.log(data);
           this.isSuccessful = true;
           this.isSignUpFailed = false;
-          this.router.navigate(['/client/login']);
+          this.router.navigate(['/client/verifyaccount']);
         },
         error: (err) => {
           this.errorMessage = err.error.message;

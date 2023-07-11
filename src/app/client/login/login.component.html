@@ -49,15 +49,21 @@
                                     <div *ngIf="password.errors['minlength']">
                                       Password must be at least 5 characters
                                     </div>
+                                  
                                   </div>
-                                </div>
                                  
+                                </div>
+                                <div *ngIf="isLoginFailed==true" style="justify-content: center;">
+                                  <span style="color: rgb(208, 7, 34);">Username Or Password Are Incorrect </span>
+                                </div>
+                                
                                 <div class="form-group">
                                   <button class="btn btn-primary" >Continue</button>
 
                                 </div>
+                               
                                 <div class="form-group">
-                            
+                                 
                               </div>
 
                               </form>
