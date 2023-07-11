@@ -9,6 +9,7 @@ import { StorageService } from 'src/app/_services/storage.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+
   username?: string;
   isLoggedIn = false;
 
@@ -36,6 +37,9 @@ export class HeaderComponent {
         console.log(err);
       }
     });
+  }
+  Login():void{
+    this.router.navigate(['/client/login']);
   }
 
 }
