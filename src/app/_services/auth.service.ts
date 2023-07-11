@@ -13,6 +13,8 @@ const httpOptions = {
 })
 export class AuthService {
   AUTH_API = 'http://localhost:9090/api/auth/';
+  Verif_API='http://localhost:9090/api/auth/verifyUserByusername'; 
+
 
   constructor(private http: HttpClient) { }
   register(nom: string, prenom: string, username: string, email: string, password: string, dateNaissance: Date, roles: string[]): Observable<any> {
@@ -59,5 +61,8 @@ export class AuthService {
 
   resetPassword(resetPassRequest: any): Observable<any> {
     return this.http.post(`${this.AUTH_API}reset-password`, resetPassRequest);
+  }
+  verifyAccount(username:String):Observable<any>{
+    return this.http.get(`${this.Verif_API}/${username}`);
   }
 }
