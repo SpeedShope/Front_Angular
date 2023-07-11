@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ClientComponent } from './client.component';
 import { RegistreComponent } from './registre/registre.component';
@@ -12,9 +12,11 @@ import { AddTenderComponent } from './tender/add-tender/add-tender.component';
 import { GetTenderComponent } from './tender/get-tender/get-tender.component';
 import { DetailTenderComponent } from './tender/detail-tender/detail-tender.component';
 import { UpdateTenderComponent } from './tender/update-tender/update-tender.component';
+import { VerifyAccountComponent } from './verify-account/verify-account.component';
 
 
 const routes: Routes = [  { path:'', component:ClientComponent, children:[
+  {path:'verifyaccount',component:VerifyAccountComponent},
   {path:'login',component:LoginComponent},
   {path:'registre',component:RegistreComponent},
   {path:'home',component:HomeComponent}, 
