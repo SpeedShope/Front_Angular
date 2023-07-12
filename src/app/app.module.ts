@@ -11,7 +11,7 @@ import { VerifyAccountComponent } from './client/verify-account/verify-account.c
 @NgModule({
   declarations: [
     AppComponent,
-    VerifyAccountComponent,
+    
    
   ],
   imports: [

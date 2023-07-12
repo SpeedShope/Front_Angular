@@ -54,15 +54,15 @@
                                  
                                 </div>
                                 <div *ngIf="!isVerified">
-                                  <p>Your account is not verified. Please check your email for verification instructions.</p>
+                                  <p>Your account is not verified. Please check your email for verification instructions</p>
                                 </div>       
                                 <div *ngIf="isLoginFailed==true && isVerified" style="justify-content: center;">
                                   <span style="color: rgb(208, 7, 34);">Username Or Password Are Incorrect </span>
                                 </div>
                                 
                                 <div class="form-group">
-                                  <button class="btn btn-primary" >Continue</button>
-
+                                  <button  [hidden]="!isVerified" class="btn btn-primary" >Continue</button>
+                                  <button [hidden]="isVerified" (click)="verifyCode()" class="btn btn-primary">Verify Your account Now</button>
                                 </div>
                                
                                 <div class="form-group">
