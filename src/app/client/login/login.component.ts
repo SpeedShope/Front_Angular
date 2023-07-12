@@ -63,4 +63,7 @@ export class LoginComponent {
       }
     });
   }
+   verifyCode() : void{
+    this.router.navigate(['/client/verifyaccount', this.form.username]);
+  } 
 }

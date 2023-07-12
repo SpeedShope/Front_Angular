@@ -20,6 +20,7 @@ import { GetTenderComponent } from './tender/get-tender/get-tender.component';
 import { UpdateTenderComponent } from './tender/update-tender/update-tender.component';
 import { DeletTenderComponent } from './tender/delet-tender/delet-tender.component';
 import { DetailTenderComponent } from './tender/detail-tender/detail-tender.component';
+import { VerifyAccountComponent } from './verify-account/verify-account.component';
 
 
 
@@ -28,6 +29,7 @@ import { DetailTenderComponent } from './tender/detail-tender/detail-tender.comp
     HeaderComponent,
     ClientComponent,
     FooterComponent,
+    VerifyAccountComponent,
     HomeComponent,
     LoginComponent,
     RegistreComponent,
@@ -46,7 +48,8 @@ import { DetailTenderComponent } from './tender/detail-tender/detail-tender.comp
     ClientRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    
   ]
 })
 export class ClientModule { }

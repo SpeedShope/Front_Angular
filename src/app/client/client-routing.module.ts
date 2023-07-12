@@ -16,7 +16,7 @@ import { VerifyAccountComponent } from './verify-account/verify-account.componen
 
 
 const routes: Routes = [  { path:'', component:ClientComponent, children:[
-  {path:'verifyaccount',component:VerifyAccountComponent},
+  {path:'verifyaccount/:username',component:VerifyAccountComponent},
   {path:'login',component:LoginComponent},
   {path:'registre',component:RegistreComponent},
   {path:'home',component:HomeComponent}, 

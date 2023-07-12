@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, catchError, map, of } from 'rxjs';
 
 const AUTH_API = 'http://localhost:9090/api/auth/';
 
@@ -14,7 +14,7 @@ const httpOptions = {
 export class AuthService {
   AUTH_API = 'http://localhost:9090/api/auth/';
   Verif_API='http://localhost:9090/api/auth/verifyUserByusername'; 
-
+  Validate_OTP='http://localhost:9090/api/auth/ValidateAccount';
 
   constructor(private http: HttpClient) { }
   register(nom: string, prenom: string, username: string, email: string, password: string, dateNaissance: Date, roles: string[]): Observable<any> {
@@ -65,4 +65,14 @@ export class AuthService {
   verifyAccount(username:String):Observable<any>{
     return this.http.get(`${this.Verif_API}/${username}`);
   }
+  
+  ValidateOTP(username: string): Observable<any> {
+    const url = `${this.Validate_OTP}/${username}`;
+    const payload = { verified: true }; // Update the verified field to true
+  
+    return this.http.put(url, payload);
+  }
+  
+
+
 }
