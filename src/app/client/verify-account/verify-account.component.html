@@ -23,7 +23,11 @@
         <button class="btn btn-primary" (click)="verifyOTP()">
             Verify Codes and Continue
         </button>
+        
       </small>
+      <button class="btn btn-link " (click)="OTPRESEND()">
+        Resend ME THE CODE 
+    </button>
       <p>The entered code is: {{ enteredCode }}</p>
       <h1 [ngStyle]="isVerified ? {'color': 'green'} : {'color': 'red'}">{{OTPmsg}}</h1>
 
