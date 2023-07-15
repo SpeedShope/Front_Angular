@@ -72,7 +72,9 @@ export class AuthService {
   
     return this.http.put(url, payload);
   }
-  
 
-
+  resendOTP(username:String) :Observable<any>{
+    const url = `${this.AUTH_API}resendVerifCode/${username}`;
+    return this.http.post(url,"");
+  }
 }

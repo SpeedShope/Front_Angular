@@ -55,4 +55,17 @@ export class VerifyAccountComponent {
       }
     });
   }
+
+  OTPRESEND():void{
+    console.log(this.username);
+    this.authService.resendOTP(this.username).subscribe({
+      next: (data) => {
+        console.log(data);
+        this.OTPmsg="OTP Sent";
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    })
+  }
 }
