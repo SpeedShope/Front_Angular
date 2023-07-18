@@ -38,6 +38,7 @@ export class HeaderComponent {
       }
     });
   }
+  
   Login():void{
     this.router.navigate(['/client/login']);
   }
