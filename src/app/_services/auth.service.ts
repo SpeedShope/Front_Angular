@@ -15,8 +15,13 @@ export class AuthService {
   AUTH_API = 'http://localhost:9090/api/auth/';
   Verif_API='http://localhost:9090/api/auth/verifyUserByusername'; 
   Validate_OTP='http://localhost:9090/api/auth/ValidateAccount';
+  private apiUrl = 'http://example.com/api'; // Replace this with your server's API URL
 
   constructor(private http: HttpClient) { }
+  
+  registerUser(formData: FormData): Observable<any> {
+    return this.http.post<any>(`${this.AUTH_API}signup`, formData);
+  }
   register(nom: string, prenom: string, username: string, email: string, password: string, dateNaissance: Date, roles: string[]): Observable<any> {
     return this.http.post(
       AUTH_API + 'signup',
