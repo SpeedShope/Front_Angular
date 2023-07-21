@@ -39,20 +39,27 @@
                 <li class="nav-item px-2"><a class="scroll-to" routerLink="/addtender">Add Tender</a></li>
                 <li class="nav-item px-2"><a class="scroll-to" routerLink="/gettender">Tenders</a></li>
                 <li class="nav-item px-2"><a class="scroll-to" routerLink="/client/profile">Profile</a></li>
-                <button class="btn" *ngIf="isLoggedIn" (click)="logout()">Logout</button>
-                <button class="btn" *ngIf="!isLoggedIn" (click)="Login()">Login</button>
+                <button class="btn" *ngIf="isLoggedIn; else loginButton" (click)="logout()">Logout</button>
+                <ng-template #loginButton>
+                  <button class="btn" (click)="Login()">Login</button>
+                </ng-template>
               </ul>
             </div>
             <div class="header-col header-right">
               <div class="profile-card">
-                <img src="/assets/img/author-1.png" alt="Profile Image" class="profile-image">
-                <div style="filter: invert(100%); display: flex; justify-content: center;" class="profile-name">{{username}}</div>
+                <img *ngIf="profilePictureUrl; else defaultProfilePicture" [src]="profilePictureUrl" alt="Profile Picture" style="width: 150px; height: 150px;" />
+                <ng-template #defaultProfilePicture>
+                  <!-- Show a default image if no profile picture URL is available -->
+                  <img *ngIf="!profilePictureUrl" src="assets/default-profile-picture.png" alt="Default Profile Picture" />
+                </ng-template>
+                <div style="filter: invert(100%); display: flex; justify-content: center; size-adjust: initial; size: 10%;" class="profile-name">{{ username }}</div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </header>
+    
     
   
       <main class="main">
