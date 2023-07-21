@@ -15,7 +15,7 @@ export class HomeComponent {
  
   constructor(private storageService: StorageService, private authService: AuthService,private router: Router) { }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     this.isLoggedIn = this.storageService.isLoggedIn();
 
     if (this.isLoggedIn) {

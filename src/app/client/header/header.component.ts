@@ -12,19 +12,29 @@ export class HeaderComponent {
 
   username?: string;
   isLoggedIn = false;
-
+  profilePictureUrl : string |null ='';
  
   constructor(private storageService: StorageService, private authService: AuthService,private router: Router) { }
 
-  ngOnInit(): void {
+async ngOnInit(): Promise<void> {
+  setTimeout(()=>{
     this.isLoggedIn = this.storageService.isLoggedIn();
 
     if (this.isLoggedIn) {
-      const user = this.storageService.getUser();
-
+      const user =  this.storageService.getUser();
       this.username = user.username;
+      this.profilePictureUrl = this.storageService.getUserPicture();
     }
+  },3000
+
+  )
+   
   }
+
+  getUserPicture(){
+    this.profilePictureUrl = this.storageService.getUserPicture(); // Get the data URL of the profile pictur
+  }
+  
 
   logout(): void {
     this.authService.logout().subscribe({
