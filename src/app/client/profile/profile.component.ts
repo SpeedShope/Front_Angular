@@ -18,9 +18,14 @@ interface MyProfile {
 })
 
 export class ProfileComponent {
+  imgprofile:String|null=''; 
+
   isLoggedIn = false;
   isLoginFailed = false;
-  constructor(private userService: UserService,private storageService:StorageService,private authService: AuthService, private router: Router) { }
+  constructor(private userService: UserService,private storageService:StorageService,private authService: AuthService, private router: Router) { 
+    this.imgprofile=
+    this.storageService.getUserPicture(); 
+   }
 
 
   user: MyProfile = {

@@ -17,22 +17,29 @@ export class HeaderComponent {
   constructor(private storageService: StorageService, private authService: AuthService,private router: Router) { }
 
 async ngOnInit(): Promise<void> {
+  this.isLoggedIn =await this.storageService.isLoggedIn();
+  const user = await this.storageService.getUser();
+
+  if (this.isLoggedIn===true) {
+    console.log(this.username)
+    this.username = user.username;
+    this.profilePictureUrl = await this.storageService.getUserPicture();
+  }
+  
+  
   setTimeout(()=>{
     this.isLoggedIn = this.storageService.isLoggedIn();
-
-    if (this.isLoggedIn) {
-      const user =  this.storageService.getUser();
-      this.username = user.username;
+      console.log(this.username)
       this.profilePictureUrl = this.storageService.getUserPicture();
-    }
-  },3000
+    
+  },5000
 
   )
    
   }
 
-  getUserPicture(){
-    this.profilePictureUrl = this.storageService.getUserPicture(); // Get the data URL of the profile pictur
+  async getUserPicture(){
+    this.profilePictureUrl = await this.storageService.getUserPicture(); // Get the data URL of the profile pictur
   }
   
 

@@ -45,7 +45,7 @@ export class StorageService {
   }
 
 
-  public getUserPicture(): string | null {
+  public getUserPicture():any {
     return window.sessionStorage.getItem(USER_PICTURE_KEY);
   }
 
