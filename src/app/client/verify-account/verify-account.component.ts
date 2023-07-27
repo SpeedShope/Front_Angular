@@ -36,6 +36,8 @@ export class VerifyAccountComponent {
             next: (data) => {
               console.log(data);
               this.router.navigate(['/client/login']);
+              
+
             },
             error: (err) => {
               console.log(err);

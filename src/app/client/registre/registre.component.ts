@@ -16,6 +16,7 @@ export class RegistreComponent {
     email: null,
     password: null,
     dateNaissance: null,
+    address:null,
     roles: []
   };
   roles: string[] = [];
@@ -40,7 +41,7 @@ export class RegistreComponent {
   }
 
   onSubmit(): void {
-    const { nom, prenom, username, email, password, dateNaissance, roles } = this.form;
+    const { nom, prenom, username, email, password, dateNaissance,address,roles } = this.form;
 
     console.log('Form data before sending:', this.form); // Ajouté
 
@@ -57,6 +58,7 @@ export class RegistreComponent {
     formData.append('email', email);
     formData.append('password', password);
     formData.append('dateNaissance', dateNaissance);
+    formData.append('address', address);
     formData.append('roles', JSON.stringify(roles));
 
     if (this.selectedImage) {
