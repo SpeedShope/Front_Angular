@@ -4,7 +4,12 @@
 <body style="background-color: beige;">
     <div style="margin: 20rem; "  id="layoutAuthentication">
         <div id="layoutAuthentication_content">
-            <main>
+            <main> 
+              <div style="display: flex ; justify-content: center;" classname="justify-content-center">
+                <span *ngIf="isAdmin===true" style="color:  red;">
+                  You need to visit admin login page 
+                </span>
+              </div>
                 <div class="container" style="border: 1ch;">
                     <div class="row justify-content-center">
                         <div class="col-lg-8">

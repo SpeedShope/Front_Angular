@@ -36,10 +36,14 @@
             <div class="header-col header-center">
               <ul id="main-menu" class="menu scale-eff bottom-scale-eff">
                 <li class="nav-item px-2"><a class="scroll-to" href="#header">Home</a></li>
-                <li class="nav-item px-2"><a class="scroll-to" routerLink="/addtender">Add Tender</a></li>
+                <li class="nav-item px-2"><a class="scroll-to" routerLink="/addtender" hidden="true">Add Tender</a></li>
                 <li class="nav-item px-2"><a class="scroll-to" routerLink="/gettender">Tenders</a></li>
                 <li class="nav-item px-2"><a class="scroll-to" routerLink="/client/profile">Profile</a></li>
-                <li></li>
+                <li class="nav-item px-2"><a class="scroll-to" routerLink="/client/Contact">Contact</a></li>
+                <li class="nav-item px-2"><a class="scroll-to" routerLink="/client/Services">Services</a></li>
+
+                <li class="nav-item px-2"><a class="scroll-to" ></a></li>
+
                    <!-- Login/Logout button -->
                    <button class="btn" *ngIf="isLoggedIn; else loginButton" (click)="logout()">Logout</button>
                    <ng-template #loginButton>
