@@ -22,7 +22,7 @@ const routes: Routes = [  { path:'', component:ClientComponent, children:[
   {path:'home',component:HomeComponent}, 
   {path:'profile',component:ProfileComponent}, 
   {path:'forgetpassword',component:ForgetpasswordComponent}, 
-  {path:'resetpassword',component:ResetpasswordComponent}, 
+  {path:'resetpassword/:email',component:ResetpasswordComponent}, 
   {path:'updateuser',component:UpdateuserComponent}, 
   {path: 'addtender' , component:AddTenderComponent},
 {path: 'gettender' , component:GetTenderComponent},
