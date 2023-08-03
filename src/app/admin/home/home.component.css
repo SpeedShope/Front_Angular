@@ -1,0 +1,16 @@
+
+/* Profile-card styles */
+.profile-card {
+    padding-top: 15%;
+    padding-bottom: 15%;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+  }
+  
+  /* Profile image styles */
+  .profile-card img {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+  }

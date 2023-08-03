@@ -11,21 +11,42 @@ import { StorageService } from 'src/app/_services/storage.service';
 export class HomeComponent {
   username?: string;
   isLoggedIn = false;
-
+ profilePictureUrl:String;
  
   constructor(private storageService: StorageService, private authService: AuthService,private router: Router) { }
 
   async ngOnInit(): Promise<void> {
-    this.isLoggedIn = this.storageService.isLoggedIn();
-
-    if (this.isLoggedIn) {
-      const user = this.storageService.getUser();
-
+    this.isLoggedIn =await this.storageService.isLoggedIn();
+    const user = await this.storageService.getUser();
+  
+    if (this.isLoggedIn===true) {
+      console.log(this.username)
       this.username = user.username;
+      this.profilePictureUrl = await this.storageService.getUserPicture();
     }
+    
+    
+    setTimeout(()=>{
+      this.isLoggedIn = this.storageService.isLoggedIn();
+        console.log(this.username)
+        this.profilePictureUrl = this.storageService.getUserPicture();
+      
+    },2000
+  
+    )
+     
+    }
+    
+  async getUserPicture(){
+    this.profilePictureUrl = await this.storageService.getUserPicture(); // Get the data URL of the profile pictur
   }
+  
 
-  logout(): void {
+  async cleanProfileImg():Promise<void>{
+    await window.sessionStorage.setItem("user-picture", '');
+
+  }
+ async logout():Promise<any>  {
     this.authService.logout().subscribe({
       next: res => {
         console.log(res);
