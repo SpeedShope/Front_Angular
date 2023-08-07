@@ -1,0 +1,33 @@
+<app-header></app-header>
+
+<div class="my-2 w-25">
+  <label for="" class="m-1">Categories:</label>
+  <select class="form-control" (click)="filter($event)">
+    <option value="All" selected>All</option>
+    <option value="{{ c.nameCategory }}" *ngFor="let c of category">{{ c.nameCategory }}</option>
+  </select>
+</div>
+
+<div class="row">
+  <div class="col-md-4" *ngFor="let product of pagedTenders | filter:searchText">
+    <div class="card">
+      <div class="image-container">
+        <img class="card-img-top" src="http://localhost:9090/imageProduct/{{ product.image }}" alt="Card image cap">
+      </div>
+      <div class="card-body">
+        <h5 class="card-title"> Name : {{ product.name }}</h5>
+        <p class="card-text"> Description : {{ product.description }}</p>
+        <p class="card-text">Stock : {{ product.qte }}</p>
+        <p class="card-text"> Price : {{ product.price }}</p>
+        <button class="btn-angular" (click)="addToCart(product)">add to card</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="pagination">
+    <button class="btn btn-primary" [disabled]="currentPage === 1" (click)="changePage(currentPage - 1)">Previous</button>
+    <button class="btn btn-primary" [disabled]="currentPage === totalPages" (click)="changePage(currentPage + 1)">Next</button>
+  </div>
+</div>
+
+<app-footer></app-footer>
