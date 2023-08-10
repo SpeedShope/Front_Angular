@@ -8,18 +8,13 @@ import { HomeComponent } from "./client/home/home.component";
 import { AddProduitComponent } from "./admin/add-produit/add-produit.component";
 import { AddcategoryComponent } from "./admin/category/addcategory/addcategory.component";
 import { ListcategoryComponent } from "./admin/category/listcategory/listcategory.component";
+import { ShowproductComponent } from "./client/productClient/showproduct/showproduct.component";
 
 const routes: Routes = [
     { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
     { path: 'client', loadChildren: () => import('./client/client.module').then(m => m.ClientModule) },
     
-     {path: 'addtender' , component:AddTenderComponent},
- 
-     {path:'prod',component:AddProduitComponent},
-{path: 'gettender' , component:GetTenderComponent},
-{path: 'detailtender/:id' , component:DetailTenderComponent},
-{path: 'updatetender/:id' , component:UpdateTenderComponent},
-{path:'update/:id',component:AddTenderComponent},
+    
 {path:'home',component:HomeComponent},
 {path: '**' , pathMatch:"full" , redirectTo:"home" }
 
