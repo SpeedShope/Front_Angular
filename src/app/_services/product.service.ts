@@ -41,6 +41,10 @@ export class ProductService {
 
     return this.http.get<any>(this.apiUrl+"/productsOfCategory/"+idCategory);
   }
+  getProduct(idProduct:number): Observable<any> {
+
+    return this.http.get<any>("http://localhost:9090/api/product/showproduct/"+idProduct);
+  }
   getProductOffournisseur(): Observable<any> {
     return  this.http.get<any>("http://localhost:9090/api/product/userProducts");
 

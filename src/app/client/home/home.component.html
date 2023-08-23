@@ -143,24 +143,38 @@
           <a href="#" data-filter=".blog-page">Blog Pages</a>
         </li>
       </ul>
-      <div class="grid row c-lg-4 c-md-3 c-sm-2 loaded" data-toggle="isotope"
+      
+      <div class="bg-white">
+        <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+          <h2 class="sr-only">Products</h2>
+          <div class="grid row c-lg-4 c-md-3 c-sm-2 loaded" data-toggle="isotope"
         style="position: relative; height: 3093.3px; transition: height 0.5s ease 0s;">
         <div class="grid-item home-page" *ngFor="let product of products" style="position: absolute; left: 0px; top: 0px; animation-fill-mode: none;">
-          <a href="demo1/index.html" target="_blank"
+          <a  target="_blank"
             class="demo-item scale-eff bottom-scale-eff appear-animate fadeInUpShort animated" data-appear-options="{
                       &quot;name&quot;: &quot;fadeInUpShort&quot;,
                       &quot;delay&quot;: 600
                     }" style="animation-duration: 1000ms; animation-delay: 600ms;">
-            <figure>
-              <img  src="http://localhost:9090/imageProduct/{{ product.image }}" 
-               alt="demo preview" width="415" height="320"
-                style="padding-top: 77.108%;">
-              <figcaption class="demo-name scale-eff-item">{{product.name}}, {{product.price}}</figcaption>
-            </figure>
+                    <div class="product-container" [routerLink]="['/client/showPr',product.id]" >
+                      <img src="http://localhost:9090/imageProduct/{{ product.image }}" 
+                           alt="demo preview" class="square-image">
+                      <div class="product-name">{{ product.name }}</div>
+                      <div class="product-price">{{ product.price }}$</div>
+                      
+                  </div>
+                  
+                  
+                  
           </a>
         </div>
 
       </div>
+      
+          
+        </div>
+      </div>
+      
+      
     </div>
   </div>
 </section>

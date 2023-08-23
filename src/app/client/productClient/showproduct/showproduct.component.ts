@@ -5,6 +5,7 @@ import { ProductService } from 'src/app/_services/product.service';
 import { AddToCardService } from 'src/app/_services/add-to-card.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AddOrderPopupComponent } from '../../add-order-popup/add-order-popup.component';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-showproduct',
@@ -13,18 +14,28 @@ import { AddOrderPopupComponent } from '../../add-order-popup/add-order-popup.co
 })
 export class ShowproductComponent {
   products:Product[]=[];
+  public product!: Product;
+  id!:number;
 category:Category[]=[];
 currentPage: number = 1;
 itemsPerPage: number = 6; 
 searchText = '';
 
 
-constructor(private productservice:ProductService , private cart : AddToCardService,private diag: MatDialog) {}
+constructor(private productservice:ProductService ,private currentRoute: ActivatedRoute, private cart : AddToCardService,private diag: MatDialog) {}
   ngOnInit(): void {
-this.getAllProduct()
-this.getAllCategories()
-
+    this.id= this.currentRoute.snapshot.params['id'];
+    console.log(this.id);
+    if(this.id!=null){
+      //update
+      
+     
+      this.productservice.getProduct(this.id).subscribe(
+        (object : Product)=> this.product=object
+      )
   }
+
+}
 
 getAllProduct(){
   this.productservice.getProducts().subscribe((data) => {
@@ -35,6 +46,7 @@ getAllProduct(){
   });
 });
   }
+
   getAllCategories(){
 this.productservice.getAllCategory().subscribe(data=>{
   this.category=data;

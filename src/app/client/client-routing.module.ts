@@ -31,7 +31,7 @@ const routes: Routes = [  { path:'', component:ClientComponent, children:[
 {path: 'detailtender/:id' , component:DetailTenderComponent},
 {path: 'updatetender/:id' , component:UpdateTenderComponent},
 {path:'update/:id',component:AddTenderComponent},
-{path:'showPr',component:ShowproductComponent}, 
+{path:'showPr/:id',component:ShowproductComponent}, 
 {path:'add-to-card',component:AddToCardComponent},
 
 

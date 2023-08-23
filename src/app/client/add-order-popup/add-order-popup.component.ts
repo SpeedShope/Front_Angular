@@ -27,9 +27,12 @@ export class AddOrderPopupComponent {
  
    constructor(private orderSerice:OrderService,private router: Router, private billService: BillService,private diag: MatDialogRef<AddOrderPopupComponent>) { }
  
-   ngOnInit(): void {
+   ngOnInit():
+    Observable<string>{
+      return this.billService.getCodePromo();
+     }
      
-   }
+   
    onSubmit(){
      this.saveOrer();
      this.send()
