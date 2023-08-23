@@ -39,4 +39,5 @@ export class UserService {
   getMyProfile(): Observable<MyProfile> {
     return this.http.get<MyProfile>(`${this.API_URL}MyProfile`);
   }
+  
 }

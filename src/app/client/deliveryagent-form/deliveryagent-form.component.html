@@ -1,0 +1,43 @@
+<form (ngSubmit)="submitForm()">
+   <!-- Basic Information -->
+  <label for="cin">CIN:</label>
+  <input type="text" id="cin" [(ngModel)]="form.cin" name="cin">
+
+  <label for="vehiculeType">Type de véhicule:</label>
+  <select id="vehiculeType" [(ngModel)]="form.vehiculeType" name="vehiculeType">
+    <option value="track">Camion</option>
+    <option value="van">Fourgon</option>
+    <option value="car">Voiture</option>
+  </select>
+  <!-- ... Other fields ... -->
+
+  <!-- Vehicle Information -->
+  <label for="vehiculeType">Matricule de véhicule:</label>
+  <input type="number" id="vehiculeMatricule" [(ngModel)]="form.vehiculeMatricule" name="vehiculeMatricule">
+
+    <label for="vehiculeType">Marque de véhicule:</label>
+    <input type="text" id="vehiculeMarque" [(ngModel)]="form.vehiculeMarque" name="vehiculeMarque">
+    <label for="vehiculeType">Modele de véhicule:</label
+    ><input type="text" id="vehiculeModele" [(ngModel)]="form.vehiculeModele" name="vehiculeModele">
+    <label for="vehiculeType">Couleur de véhicule:</label>
+    <input type="text" id="vehiculeCouleur" [(ngModel)]="form.vehiculeCouleur" name="vehiculeCouleur">
+    <label for="vehiculeType">Année de véhicule:</label>
+    <input type="number" id="vehiculeAnnee" [(ngModel)]="form.vehiculeAnnee" name="vehiculeAnnee">
+    <label for="vehiculeType">Nombre de places:</label>
+    <input type="number" id="vehiculePlaces" [(ngModel)]="form.vehiculePlaces" name="vehiculePlaces">
+    <label for="vehiculeType">Volume de véhicule:</label>
+    <input type="number" id="vehiculeVolume" [(ngModel)]="form.vehiculeVolume" name="vehiculeVolume">
+    <label for="vehiculeType">Poids de véhicule:</label>
+    <input type="number" id="vehiculePoids" [(ngModel)]="form.vehiculePoids" name="vehiculePoids">
+    <label for="vehiculeType">Longueur de véhicule:</label>
+    <input type="number" id="vehiculeLongueur" [(ngModel)]="form.vehiculeLongueur" name="vehiculeLongueur">
+    <label for="vehiculeType">Largeur de véhicule:</label>
+    <input type="number" id="vehiculeLargeur" [(ngModel)]="form.vehiculeLargeur" name="vehiculeLargeur">
+    <label for="vehiculeType">Hauteur de véhicule:</label>
+    <input type="number" id="vehiculeHauteur" [(ngModel)]="form.vehiculeHauteur" name="vehiculeHauteur">
+    <label for="vehiculeType">Type de carburant:</label>
+    <input type="text" id="vehiculeCarburant" [(ngModel)]="form.vehiculeCarburant" name="vehiculeCarburant">
+
+  <!-- Submit Button -->
+  <button type="submit">Enregistrer</button> 
+</form>

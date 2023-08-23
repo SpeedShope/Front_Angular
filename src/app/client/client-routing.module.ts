@@ -13,6 +13,8 @@ import { GetTenderComponent } from './tender/get-tender/get-tender.component';
 import { DetailTenderComponent } from './tender/detail-tender/detail-tender.component';
 import { UpdateTenderComponent } from './tender/update-tender/update-tender.component';
 import { VerifyAccountComponent } from './verify-account/verify-account.component';
+import { DeliveryagentFormComponent } from './deliveryagent-form/deliveryagent-form.component';
+import { OurServiceFormComponent } from './our-service-form/our-service-form.component';
 
 
 const routes: Routes = [  { path:'', component:ClientComponent, children:[
@@ -29,6 +31,10 @@ const routes: Routes = [  { path:'', component:ClientComponent, children:[
 {path: 'detailtender/:id' , component:DetailTenderComponent},
 {path: 'updatetender/:id' , component:UpdateTenderComponent},
 {path:'update/:id',component:AddTenderComponent},
+{path:'Services',component:OurServiceFormComponent},
+{
+  path:'contractForm/:id',component:DeliveryagentFormComponent
+},
 
   {path: '**' , pathMatch:"full" , redirectTo:"login" }
 

@@ -21,6 +21,8 @@ import { UpdateTenderComponent } from './tender/update-tender/update-tender.comp
 import { DeletTenderComponent } from './tender/delet-tender/delet-tender.component';
 import { DetailTenderComponent } from './tender/detail-tender/detail-tender.component';
 import { VerifyAccountComponent } from './verify-account/verify-account.component';
+import { DeliveryagentFormComponent } from './deliveryagent-form/deliveryagent-form.component';
+import { OurServiceFormComponent } from './our-service-form/our-service-form.component';
 
 
 
@@ -41,7 +43,9 @@ import { VerifyAccountComponent } from './verify-account/verify-account.componen
     GetTenderComponent,
     UpdateTenderComponent,
     DeletTenderComponent,
-    DetailTenderComponent
+    DetailTenderComponent,
+    DeliveryagentFormComponent,
+    OurServiceFormComponent
   ],
   imports: [
     CommonModule,
