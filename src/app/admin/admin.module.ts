@@ -12,6 +12,8 @@ import { ListcategoryComponent } from './category/listcategory/listcategory.comp
 import { AddProduitComponent } from './add-produit/add-produit.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { ContractsDetailsAdminComponent } from './contracts-details-admin/contracts-details-admin.component';
+import { ContractDetailComponent } from './contract-detail/contract-detail.component';
 
 
 
@@ -23,7 +25,9 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     AddcategoryComponent,
     ListcategoryComponent,
     AddProduitComponent,
-    RegistreComponent
+    RegistreComponent,
+    ContractsDetailsAdminComponent,
+    ContractDetailComponent
   ],
   imports: [
     CommonModule,
