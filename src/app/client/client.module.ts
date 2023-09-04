@@ -23,6 +23,7 @@ import { DetailTenderComponent } from './tender/detail-tender/detail-tender.comp
 import { VerifyAccountComponent } from './verify-account/verify-account.component';
 import { DeliveryagentFormComponent } from './deliveryagent-form/deliveryagent-form.component';
 import { OurServiceFormComponent } from './our-service-form/our-service-form.component';
+import { SignaturePadModule } from 'angular2-signaturepad';
 
 
 
@@ -45,7 +46,8 @@ import { OurServiceFormComponent } from './our-service-form/our-service-form.com
     DeletTenderComponent,
     DetailTenderComponent,
     DeliveryagentFormComponent,
-    OurServiceFormComponent
+    OurServiceFormComponent,
+    
   ],
   imports: [
     CommonModule,
@@ -53,6 +55,8 @@ import { OurServiceFormComponent } from './our-service-form/our-service-form.com
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    SignaturePadModule,
+
     
   ]
 })

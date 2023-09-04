@@ -10,6 +10,7 @@ interface MyProfile {
   dateNaissance: string;
   username: string;
   address:string;
+  id:number
 }
 
 @Injectable({

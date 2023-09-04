@@ -1,43 +1,131 @@
-<form (ngSubmit)="submitForm()">
-   <!-- Basic Information -->
-  <label for="cin">CIN:</label>
-  <input type="text" id="cin" [(ngModel)]="form.cin" name="cin">
+<div class="container">
+  <div class="justify-content-center offset-4 row">
+    <h1 style="color: captiontext; margin-top: 5%; margin-bottom: 3%;"> Contract Application Form</h1>
+  </div>
+  <div class="justify-content-center row" style="margin-bottom: 5%;">
+    <div class="container"
+      style="padding: 30px; border: 1px solid rgb(236, 236, 236); border-radius: 15px; box-shadow: rgba(0, 0, 0, 0.05) 5px 5px 15px;">
+      <div class="justify-content-center row">
+        <div class="col-md-10">
+        
 
-  <label for="vehiculeType">Type de véhicule:</label>
-  <select id="vehiculeType" [(ngModel)]="form.vehiculeType" name="vehiculeType">
-    <option value="track">Camion</option>
-    <option value="van">Fourgon</option>
-    <option value="car">Voiture</option>
-  </select>
-  <!-- ... Other fields ... -->
+          <form (ngSubmit)="submitForm()">
+            <div class="row">
+              <h2 style="color: green; font-family: sans-serif;"> Hi , {{nom}} {{prenom}} </h2><br>
+              <p style="margin-bottom: 5%; color: gray; font-family: monospace;">this is an application Form for a
+                Delivery agent post , please fill the form and read all agreament rules before sending Form </p><label
+                for="contractName" class="form-label col-form-label col">Contract Duration :</label>
+              <div class="col-sm-9">
+                <select class="form-select" [(ngModel)]="contractduration" name="contractDuration">
+                  <option>--Please Select an option--</option>
+                  <option value="3">3 Month</option>
+                  <option value="6">6 Month</option>
+                  <option value="12">12 month</option>
+                </select></div>
+            </div>
+            <div><label class="form-label">Cin:</label><input placeholder="Please Enter Your Cin" required=""
+                pattern="^[0-9]{8}$" type="number" class="form-control"  [(ngModel)]="cin" name="cin">
+              <div class="invalid-feedback">Please enter a valid Cin that consists of exactly 8 digits.</div>
+            </div>
+        
+            <div class="row">
+              <div class="col-sm-6">
+                <label class="form-label col-form-label col" style="color: green; font-family: sans-serif;">
+                  Do you have a car?
+                </label>
+              </div>
+              <div class="col-sm-6" style="margin: 2%;">
+                <div class="form-check">
+                  <input type="radio" id="hasCarYes" class="form-check-input" [(ngModel)]="hasCar" name="hasCar" [value]="true">
+                  <label class="form-check-label" for="hasCarYes">Yes</label>
+                </div>
+                <div class="form-check">
+                  <input type="radio" id="hasCarNo" class="form-check-input" [(ngModel)]="hasCar" name="hasCar" [value]="false">
+                  <label class="form-check-label" for="hasCarNo">No</label>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Conditional car information input fields -->
+            <div class="row" *ngIf="hasCar === true">
+              <div class="col-sm-6" >
+                <label class="form-label col-form-label col" style="color: green; font-family: sans-serif;">
+                  Car Model:
+                </label>
+              </div>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" [(ngModel)]="carModel" name="carModel">
+              </div>
+            </div>
+            <div class="row" *ngIf="hasCar === true" style="margin-top: 1rem; margin-bottom: 1rem;">
+              <div class="col-sm-6">
+                <label class="form-label col-form-label col" style="color: green; font-family: sans-serif;">
+                  Car Type:
+                </label>
+              </div>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" [(ngModel)]="carType" name="carType">
+              </div>
+            </div>
+            
+            <div class="row">
+              <div class="col-sm-6">
+                <label class="form-label col-form-label col" style="color: green; font-family: sans-serif;">
+                  Work Preference:
+                </label>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-check">
+                  <input type="radio" id="workPreferencePartTime" class="form-check-input" [(ngModel)]="workPreference" name="workPreference" [value]="'PARTTIME'">
+                  <label class="form-check-label" for="workPreferencePartTime">Part-Time</label>
+                </div>
+                <div class="form-check">
+                  <input type="radio" id="workPreferenceFullTime" class="form-check-input" [(ngModel)]="workPreference" name="workPreference" [value]="'FULLTIME'">
+                  <label class="form-check-label" for="workPreferenceFullTime">Full-Time</label>
+                </div>
+              </div>
+            </div>
+        
+            <div class="row"></div><br>
+            <h3 style="margin-top: 5%; margin-bottom: 3%;">Service Delivery Agreement</h3>
+            <p>
+            <h4> Based on thoes information provided we can offer you a 1200 Dinar </h4>
+            <h5 style="color: red;">If you want to receive your contract by mail in case of accept , you must add an
+              email to your account</h5><br>
+              <p>This service delivery agreement is a legally binding contract between us and
+            for the services listed below. The agreement if it done shall continue to the period selected above
+            otherwise cancelled by either party.
+          </p>
+            <p> I agree that i will be responsable on any harmless or loss or damage Touching my future shipments .</p>
+           <!-- Checkbox to accept the rules -->
+<div class="row">
+  <div class="col-sm-6">
+    <label for="acceptedRules" class="form-label col-form-label col" style="color: red; font-family: monospace; flex-wrap: nowrap; font-size: 1.5em;">I have read and accept the terms and conditions</label>
+  </div>
+  <div class="col-sm-6">
+    <div class=""><input type="checkbox" id="acceptedRules" class="form-check-input" [checked]="acceptedRules" (change)="acceptedRules = !acceptedRules"></div>
+  </div>
+</div>
+<div class="container">
+  <!-- ... Your existing form elements ... -->
 
-  <!-- Vehicle Information -->
-  <label for="vehiculeType">Matricule de véhicule:</label>
-  <input type="number" id="vehiculeMatricule" [(ngModel)]="form.vehiculeMatricule" name="vehiculeMatricule">
+  <!-- Signature Pad -->
+ <!-- Signature Pad -->
+<div class="row">
+  <div class="col-md-12">
+    <div class="form-group">
+      <signature-pad  (onBeginEvent)="clearSignature()" (onImageInputChange)="handleSignatureChange()"></signature-pad>
+    </div>
+  </div>
+</div>
 
-    <label for="vehiculeType">Marque de véhicule:</label>
-    <input type="text" id="vehiculeMarque" [(ngModel)]="form.vehiculeMarque" name="vehiculeMarque">
-    <label for="vehiculeType">Modele de véhicule:</label
-    ><input type="text" id="vehiculeModele" [(ngModel)]="form.vehiculeModele" name="vehiculeModele">
-    <label for="vehiculeType">Couleur de véhicule:</label>
-    <input type="text" id="vehiculeCouleur" [(ngModel)]="form.vehiculeCouleur" name="vehiculeCouleur">
-    <label for="vehiculeType">Année de véhicule:</label>
-    <input type="number" id="vehiculeAnnee" [(ngModel)]="form.vehiculeAnnee" name="vehiculeAnnee">
-    <label for="vehiculeType">Nombre de places:</label>
-    <input type="number" id="vehiculePlaces" [(ngModel)]="form.vehiculePlaces" name="vehiculePlaces">
-    <label for="vehiculeType">Volume de véhicule:</label>
-    <input type="number" id="vehiculeVolume" [(ngModel)]="form.vehiculeVolume" name="vehiculeVolume">
-    <label for="vehiculeType">Poids de véhicule:</label>
-    <input type="number" id="vehiculePoids" [(ngModel)]="form.vehiculePoids" name="vehiculePoids">
-    <label for="vehiculeType">Longueur de véhicule:</label>
-    <input type="number" id="vehiculeLongueur" [(ngModel)]="form.vehiculeLongueur" name="vehiculeLongueur">
-    <label for="vehiculeType">Largeur de véhicule:</label>
-    <input type="number" id="vehiculeLargeur" [(ngModel)]="form.vehiculeLargeur" name="vehiculeLargeur">
-    <label for="vehiculeType">Hauteur de véhicule:</label>
-    <input type="number" id="vehiculeHauteur" [(ngModel)]="form.vehiculeHauteur" name="vehiculeHauteur">
-    <label for="vehiculeType">Type de carburant:</label>
-    <input type="text" id="vehiculeCarburant" [(ngModel)]="form.vehiculeCarburant" name="vehiculeCarburant">
+</div>
 
-  <!-- Submit Button -->
-  <button type="submit">Enregistrer</button> 
-</form>
+<!-- Submit Application button -->
+<button type="submit" [disabled]="!acceptedRules" class="btn btn-primary">Submit Application</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
