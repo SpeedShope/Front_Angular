@@ -1,0 +1,20 @@
+.product-container {
+    text-align: center; /* Centrer le contenu */
+}
+
+.square-image {
+    width: 150px; /* Ajustez la taille carrée selon vos besoins */
+    height: 150px; /* Ajustez la taille carrée selon vos besoins */
+    object-fit: cover;
+    display: block; /* Assurez-vous que l'image soit un élément de bloc */
+    margin: 0 auto; /* Centrer l'image */
+}
+
+.product-name {
+    margin-top: 10px; /* Espace entre l'image et le nom du produit */
+    font-weight: bold;
+}
+
+.product-price {
+    color: gray;
+}

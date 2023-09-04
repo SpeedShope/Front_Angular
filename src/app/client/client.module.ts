@@ -24,6 +24,10 @@ import { VerifyAccountComponent } from './verify-account/verify-account.componen
 import { DeliveryagentFormComponent } from './deliveryagent-form/deliveryagent-form.component';
 import { OurServiceFormComponent } from './our-service-form/our-service-form.component';
 import { SignaturePadModule } from 'angular2-signaturepad';
+import { AddToCardComponent } from './add-to-card/add-to-card.component';
+import { AddOrderPopupComponent } from './add-order-popup/add-order-popup.component';
+import { ShowproductComponent } from './productClient/showproduct/showproduct.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 
@@ -48,6 +52,11 @@ import { SignaturePadModule } from 'angular2-signaturepad';
     DeliveryagentFormComponent,
     OurServiceFormComponent,
     
+
+    AddOrderPopupComponent,
+    AddToCardComponent,
+    ShowproductComponent,
+    DetailTenderComponent
   ],
   imports: [
     CommonModule,
@@ -57,6 +66,7 @@ import { SignaturePadModule } from 'angular2-signaturepad';
     FormsModule,
     SignaturePadModule,
 
+    Ng2SearchPipeModule
     
   ]
 })

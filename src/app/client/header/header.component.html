@@ -35,9 +35,9 @@
             </div>
             <div class="header-col header-center">
               <ul id="main-menu" class="menu scale-eff bottom-scale-eff">
-                <li class="nav-item px-2"><a class="scroll-to" href="#header">Home</a></li>
-                <li class="nav-item px-2"><a class="scroll-to" routerLink="/addtender" hidden="true">Add Tender</a></li>
-                <li class="nav-item px-2"><a class="scroll-to" routerLink="/gettender">Tenders</a></li>
+                <li class="nav-item px-2"><a class="scroll-to" routerLink="/showPr">Home</a></li>
+                <li class="nav-item px-2"><a class="scroll-to" routerLink="/client/addtender" hidden="true">Add Tender</a></li>
+                <li class="nav-item px-2"><a class="scroll-to" routerLink="/client/gettender">Tenders</a></li>
                 <li class="nav-item px-2"><a class="scroll-to" routerLink="/client/profile">Profile</a></li>
                 <li class="nav-item px-2"><a class="scroll-to" routerLink="/client/Contact">Contact</a></li>
                 <li class="nav-item px-2"><a class="scroll-to" routerLink="/client/Services" >Services</a></li>
@@ -50,6 +50,20 @@
                      <button class="btn" (click)="Login()">Login</button>
                    </ng-template>
               </ul>
+              <form class="black-background">
+                <a href="#!">
+                  <svg class="feather feather-shopping-cart" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <!-- Les éléments SVG ici -->
+                  </svg>
+                </a>
+                <a routerLink="/client/add-to-card" href="#!">
+                  <svg class="feather feather-shopping-cart" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <!-- Les éléments SVG ici -->
+                  </svg>
+                </a>
+                <!-- Autres liens et logos -->
+              </form>
+              
             </div>
             <div class="header-col header-right">
               <div class="profile-card">
@@ -70,6 +84,7 @@
                 margin-left: 1%;"><p>{{ username }}</p></div>
               </div>
             </div>
+            <form action=""></form>
           </div>
         </div>
       </div>

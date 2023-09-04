@@ -1,0 +1,81 @@
+.btn-angular {
+    border: none;
+    background-color: #FFA500;
+    color: white;
+    padding: 12px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 0px;
+    transform: skew(-20deg);
+    margin: 10px;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .btn-angular:hover {
+    background-color: #FF8C00;
+    transform: skew(-20deg) scale(1.1);
+    cursor: pointer;
+  }
+  .card-img-top {
+    height: 200px; /* Ajustez la hauteur souhaitée pour l'image */
+    object-fit: cover; /* Pour assurer un redimensionnement proportionnel de l'image */
+  }
+  
+  .image-container {
+    height: 200px; /* Ajustez la hauteur souhaitée pour le conteneur de l'image */
+    overflow: hidden; /* Masque toute partie de l'image qui dépasse la hauteur du conteneur */
+  }
+  
+  .btn-angular {
+    /* Ajoutez les styles personnalisés souhaités pour le bouton */
+    height: 44px;
+    width: 208px;
+    /* Ajoutez d'autres styles personnalisés si nécessaire */
+  }
+  .card-img-top {
+    height: 200px;
+    object-fit: cover;
+    transition: filter 0.3s; /* Ajoutez une transition pour une animation en douceur */
+  }
+  
+  .card-img-top:hover {
+    filter: brightness(120%); /* Augmente la luminosité de l'image lors du survol */
+  }
+  .card-img-top {
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s; /* Ajoutez une transition pour une animation en douceur */
+  }
+  
+  .image-container:hover .card-img-top {
+    transform: scale(1.2); /* Agrandit l'image à 120% de sa taille normale lors du survol */
+  }
+  .image-container {
+    position: relative; /* Ajoutez une position relative au conteneur d'image */
+  }
+  
+  .image-overlay {
+    position: absolute; /* Positionnez l'overlay absolument sur l'image */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3); /* Ajoutez une couleur d'arrière-plan pour l'overlay */
+    opacity: 0; /* Masquez l'overlay par défaut */
+    transition: opacity 0.3s; /* Ajoutez une transition pour une animation en douceur */
+  }
+  
+  .image-container:hover .card-img-top {
+    transform: scale(1.2); /* Agrandit l'image à 120% de sa taille normale lors du survol */
+    z-index: 1; /* Assurez-vous que l'image agrandie est au-dessus de l'overlay */
+  }
+  
+  .image-container:hover .image-overlay {
+    opacity: 1; /* Affiche l'overlay lors du survol */
+  }
+  
+  
+  

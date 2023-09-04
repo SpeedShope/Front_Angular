@@ -15,6 +15,8 @@ import { UpdateTenderComponent } from './tender/update-tender/update-tender.comp
 import { VerifyAccountComponent } from './verify-account/verify-account.component';
 import { DeliveryagentFormComponent } from './deliveryagent-form/deliveryagent-form.component';
 import { OurServiceFormComponent } from './our-service-form/our-service-form.component';
+import { ShowproductComponent } from './productClient/showproduct/showproduct.component';
+import { AddToCardComponent } from './add-to-card/add-to-card.component';
 
 
 const routes: Routes = [  { path:'', component:ClientComponent, children:[
@@ -35,6 +37,9 @@ const routes: Routes = [  { path:'', component:ClientComponent, children:[
 {
   path:'contractForm/:id',component:DeliveryagentFormComponent
 },
+{path:'showPr/:id',component:ShowproductComponent}, 
+{path:'add-to-card',component:AddToCardComponent},
+
 
   {path: '**' , pathMatch:"full" , redirectTo:"login" }
 

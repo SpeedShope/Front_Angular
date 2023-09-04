@@ -1,0 +1,45 @@
+<ng-container *ngIf="products.length !== 0">
+  <div class="container">
+    <div class="card-table">
+      <div class="cart-product">
+        <table class="table">
+          <thead>
+            <tr>
+              <th class="align">#</th>
+              <th>Product Name</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of products; let i = index">
+              <td class="align">{{ i + 1 }}</td>
+              <td class="align">{{ item.name }}</td>
+              <td class="align price">{{ item.price }}</td>
+              <td class="align">{{ item.qte }}</td>
+              <td class="align">
+                <div class="row">
+                  <button class="btn checkout-btn" (click)="open()">Checkout</button>
+                  <button class="btn delete-btn" (click)="delete()">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="btn-container">
+    <button class="btn shop-more-btn" (click)="versroute()">Shop More</button>
+    <button class="btn clear-btn" (click)="clear()">Clear Cart</button>
+    <span class="total">Total: {{ sum | currency }}</span>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="products.length === 0">
+  <div class="container">
+    <h1 class="card-title text-center">Panier</h1>
+    <div class="text-center mt-5">

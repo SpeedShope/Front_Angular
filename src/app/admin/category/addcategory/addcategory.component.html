@@ -11,7 +11,7 @@
 
     <title>SB Admin 2 - Charts</title>
 
- 
+
 
 </head>
 
@@ -25,77 +25,69 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" >
-                <div class="profile-card">
-                    <!-- Profile image -->
-                    <img *ngIf="profilePictureUrl; else defaultProfilePicture" src={{profilePictureUrl}} alt="Profile Picture" />
-                    <ng-template #defaultProfilePicture>
-                      <!-- Show a default image if no profile picture URL is available -->
-                      <img *ngIf="!profilePictureUrl" src="assets/img/author-1.png" alt="Default Profile Picture" />
-                    </ng-template>
-        
-                 
-        
-                  
-                  </div>
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-laugh-wink"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
             </a>
 
             <!-- Divider -->
+            <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item my-3">
-                <a class="nav-link" >
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/admin/home">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
 
             <!-- Divider -->
-           
+            <hr class="sidebar-divider">
 
-           
-            <hr class="sidebar-divider">
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <span>Users</span>
-                </a>
-            </li>
-            <hr class="sidebar-divider">
+
+
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" routerLink="/admin/addcategory"  data-toggle="collapse" data-target="#collapseTwo"
+                <a class="nav-link collapsed" routerLink="/admin/listpofuser" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <span>Product</span>
                 </a>
             </li>
-            <hr class="sidebar-divider">
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                <a class="nav-link collapsed" routerLink="/admin/addcategory" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
-                    <span>Shipments</span>
+                    <span>category</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" routerLink="/admin/listt" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <span>List-category</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="/admin/order" class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <span>order</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="/Deliveries" class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <span>Deliveries</span>
                 </a>
             </li>
             <hr class="sidebar-divider">
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <span>Orders</span>
-                </a>
-            </li>
-            <hr class="sidebar-divider">
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <span>Contracts</span>
-                </a>
-</li>
         </ul>
-        
+
 
         <!-- Content Wrapper -->
+
         <div id="content-wrapper" class="d-flex flex-column">
 
             <!-- Main Content -->
+
             <div id="content">
 
                 <!-- Topbar -->
@@ -106,9 +98,9 @@
                     <form
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
-                            <input type="text" class="form-control bg-gradient-secondary border-0 small" placeholder="Search for..."
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
                                 aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group mx-2" >
+                            <div class="input-group-append">
                                 <button class="btn btn-primary" type="button">
                                     <i class="fas fa-search fa-sm" style="color: #808080;"></i>
                                 </button>
@@ -158,8 +150,8 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                <a class="dropdown-item" routerLink="/admin/profileadmin">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400" ></i>
                                     Profile
                                 </a>
                                 <a class="dropdown-item" href="#">
@@ -171,7 +163,7 @@
                                     Activity Log
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" routerLink="/admin/login" data-target="#logoutModal">
+                                <a class="dropdown-item"  data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
@@ -185,8 +177,52 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
                    
+                    <div id="layoutAuthentication">
+                        <div id="layoutAuthentication_content">
+                            <main>
+                                <div class="container">
+                                    <div class="row justify-content-center">
+                                        <div class="col-lg-5">
+                                            <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                                <div class="card-header"><h3 class="text-center font-weight-light my-4">ajout</h3></div>
+                                                <div class="card-body">
+                                                    <form
+                                                name="form"
+                                                (ngSubmit)="f.form.valid && onSubmit()"
+                
+                                                #f="ngForm"
+                                                novalidate
+                                              >
+                                                <div class="form-group">
+                                                  <label for="name">name</label>
+                                                  <input
+                                                    type="text"
+                                                    class="form-control"
+                                                    name="name"
+                                                    [(ngModel)]="category.nameCategory"
+                
+                                                    required
+                                                    #name="ngModel"
+                                                  />
+                
+                                                </div>
+                                                <div class="form-group">
+                                                    <button class="btn btn-primary btn-block">ajout</button>
+                                                  </div>
+                
+                
+                                              </form>
+                
+                                                </div>
+                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </main>
+                        </div>
+                    </div>
 
                     <!-- Content Row -->
 
@@ -198,13 +234,7 @@
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
-                    </div>
-                </div>
-            </footer>
+           
             <!-- End of Footer -->
 
         </div>
@@ -231,14 +261,15 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" (click)="logout()">Logout</a>
+                    <a class="btn btn-primary" >Logout</a>
                 </div>
             </div>
         </div>
     </div>
 
-    
+
 
 </body>
 
 </html>
+
