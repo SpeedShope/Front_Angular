@@ -7,6 +7,7 @@ import { httpInterceptorProviders } from './_helpers/auth.interceptor';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './client/header/header.component';
 import { VerifyAccountComponent } from './client/verify-account/verify-account.component';
+import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
@@ -21,6 +22,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
+
     FormsModule,
 
     MatDialogModule,

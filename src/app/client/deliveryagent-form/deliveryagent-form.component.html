@@ -1,0 +1,131 @@
+<div class="container">
+  <div class="justify-content-center offset-4 row">
+    <h1 style="color: captiontext; margin-top: 5%; margin-bottom: 3%;"> Contract Application Form</h1>
+  </div>
+  <div class="justify-content-center row" style="margin-bottom: 5%;">
+    <div class="container"
+      style="padding: 30px; border: 1px solid rgb(236, 236, 236); border-radius: 15px; box-shadow: rgba(0, 0, 0, 0.05) 5px 5px 15px;">
+      <div class="justify-content-center row">
+        <div class="col-md-10">
+        
+
+          <form (ngSubmit)="submitForm()">
+            <div class="row">
+              <h2 style="color: green; font-family: sans-serif;"> Hi , {{nom}} {{prenom}} </h2><br>
+              <p style="margin-bottom: 5%; color: gray; font-family: monospace;">this is an application Form for a
+                Delivery agent post , please fill the form and read all agreament rules before sending Form </p><label
+                for="contractName" class="form-label col-form-label col">Contract Duration :</label>
+              <div class="col-sm-9">
+                <select class="form-select" [(ngModel)]="contractduration" name="contractDuration">
+                  <option>--Please Select an option--</option>
+                  <option value="3">3 Month</option>
+                  <option value="6">6 Month</option>
+                  <option value="12">12 month</option>
+                </select></div>
+            </div>
+            <div><label class="form-label">Cin:</label><input placeholder="Please Enter Your Cin" required=""
+                pattern="^[0-9]{8}$" type="number" class="form-control"  [(ngModel)]="cin" name="cin">
+              <div class="invalid-feedback">Please enter a valid Cin that consists of exactly 8 digits.</div>
+            </div>
+        
+            <div class="row">
+              <div class="col-sm-6">
+                <label class="form-label col-form-label col" style="color: green; font-family: sans-serif;">
+                  Do you have a car?
+                </label>
+              </div>
+              <div class="col-sm-6" style="margin: 2%;">
+                <div class="form-check">
+                  <input type="radio" id="hasCarYes" class="form-check-input" [(ngModel)]="hasCar" name="hasCar" [value]="true">
+                  <label class="form-check-label" for="hasCarYes">Yes</label>
+                </div>
+                <div class="form-check">
+                  <input type="radio" id="hasCarNo" class="form-check-input" [(ngModel)]="hasCar" name="hasCar" [value]="false">
+                  <label class="form-check-label" for="hasCarNo">No</label>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Conditional car information input fields -->
+            <div class="row" *ngIf="hasCar === true">
+              <div class="col-sm-6" >
+                <label class="form-label col-form-label col" style="color: green; font-family: sans-serif;">
+                  Car Model:
+                </label>
+              </div>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" [(ngModel)]="carModel" name="carModel">
+              </div>
+            </div>
+            <div class="row" *ngIf="hasCar === true" style="margin-top: 1rem; margin-bottom: 1rem;">
+              <div class="col-sm-6">
+                <label class="form-label col-form-label col" style="color: green; font-family: sans-serif;">
+                  Car Type:
+                </label>
+              </div>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" [(ngModel)]="carType" name="carType">
+              </div>
+            </div>
+            
+            <div class="row">
+              <div class="col-sm-6">
+                <label class="form-label col-form-label col" style="color: green; font-family: sans-serif;">
+                  Work Preference:
+                </label>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-check">
+                  <input type="radio" id="workPreferencePartTime" class="form-check-input" [(ngModel)]="workPreference" name="workPreference" [value]="'PARTTIME'">
+                  <label class="form-check-label" for="workPreferencePartTime">Part-Time</label>
+                </div>
+                <div class="form-check">
+                  <input type="radio" id="workPreferenceFullTime" class="form-check-input" [(ngModel)]="workPreference" name="workPreference" [value]="'FULLTIME'">
+                  <label class="form-check-label" for="workPreferenceFullTime">Full-Time</label>
+                </div>
+              </div>
+            </div>
+        
+            <div class="row"></div><br>
+            <h3 style="margin-top: 5%; margin-bottom: 3%;">Service Delivery Agreement</h3>
+            <p>
+            <h4> Based on thoes information provided we can offer you a 1200 Dinar </h4>
+            <h5 style="color: red;">If you want to receive your contract by mail in case of accept , you must add an
+              email to your account</h5><br>
+              <p>This service delivery agreement is a legally binding contract between us and
+            for the services listed below. The agreement if it done shall continue to the period selected above
+            otherwise cancelled by either party.
+          </p>
+            <p> I agree that i will be responsable on any harmless or loss or damage Touching my future shipments .</p>
+           <!-- Checkbox to accept the rules -->
+<div class="row">
+  <div class="col-sm-6">
+    <label for="acceptedRules" class="form-label col-form-label col" style="color: red; font-family: monospace; flex-wrap: nowrap; font-size: 1.5em;">I have read and accept the terms and conditions</label>
+  </div>
+  <div class="col-sm-6">
+    <div class=""><input type="checkbox" id="acceptedRules" class="form-check-input" [checked]="acceptedRules" (change)="acceptedRules = !acceptedRules"></div>
+  </div>
+</div>
+<div class="container">
+  <!-- ... Your existing form elements ... -->
+
+  <!-- Signature Pad -->
+ <!-- Signature Pad -->
+<div class="row">
+  <div class="col-md-12">
+    <div class="form-group">
+      <signature-pad  (onBeginEvent)="clearSignature()" (onImageInputChange)="handleSignatureChange()"></signature-pad>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<!-- Submit Application button -->
+<button type="submit" [disabled]="!acceptedRules" class="btn btn-primary">Submit Application</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

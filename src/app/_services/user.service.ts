@@ -10,6 +10,7 @@ interface MyProfile {
   dateNaissance: string;
   username: string;
   address:string;
+  id:number
 }
 
 @Injectable({
@@ -39,4 +40,5 @@ export class UserService {
   getMyProfile(): Observable<MyProfile> {
     return this.http.get<MyProfile>(`${this.API_URL}MyProfile`);
   }
+  
 }
