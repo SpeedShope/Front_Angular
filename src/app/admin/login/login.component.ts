@@ -40,7 +40,7 @@ export class LoginComponent {
         this.roles = this.storageService.getUser().roles;
       
         this.roles.map((i)=>{
-          if (i != 'ROLE_ADMIN') {
+          if ((i != 'ROLE_ADMIN') && (i !='ROLE_DELIVERY')) {
           this.logout();
             this.isLoginFailed = true;
             this.isLoggedIn = false;

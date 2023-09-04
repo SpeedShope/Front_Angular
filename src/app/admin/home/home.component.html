@@ -52,8 +52,8 @@
            
 
            
-            <hr class="sidebar-divider">
-            <li class="nav-item">
+            <hr class="sidebar-divider"  *ngIF="priv_Deliv_agent">
+            <li class="nav-item"  *ngIF="priv_Deliv_agent">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <span>Users</span>
@@ -84,11 +84,12 @@
             </li>
             <hr class="sidebar-divider">
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <span>Contracts</span>
+                <a class="nav-link collapsed" routerLink="/admin/home/contracts" data-toggle="collapse" data-target="#collapseTwo"
+                   aria-expanded="true" aria-controls="collapseTwo">
+                  <span>Contracts</span>
                 </a>
-</li>
+              </li>
+              
         </ul>
         
 
@@ -185,9 +186,8 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
-                   
-
+                      <router-outlet></router-outlet>
+                          
                     <!-- Content Row -->
 
 
