@@ -3,6 +3,7 @@ export class Product {
   id!:number ;
   name!:string ;
   price!:number ;
+  rating!:number ;
   qte!:number ;
   description!:string ;
   minStock!:number;

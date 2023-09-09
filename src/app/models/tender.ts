@@ -1,4 +1,5 @@
 import { Comment } from 'src/app/models/comment';
+import { Product } from './product';
   
   export class Tender {
   id!: number;
@@ -9,6 +10,8 @@ import { Comment } from 'src/app/models/comment';
     brand!:String;
     dateTender!:String;
     comments:Comment[]=[];
+    products:Product[]=[];
+    user_id!:number
   
   
   }

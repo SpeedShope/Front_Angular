@@ -17,7 +17,7 @@
                 
                       >
                   <div>
-                    <img class="card-img-top" src="http://localhost:9090/images/{{tend.name}}.png" alt="Card image cap">
+                    <img class="card-img-top" src="http://localhost:9090/images/{{ tend.name }}{{tend.description}}.png" alt="Card image cap">
 
                     <div class="container" style="display: grid;align-items: center; justify-content: center; ">
                       <div class="justify-content-center" style="display: grid;align-items: center; justify-content: center; ">
@@ -56,6 +56,7 @@
                          
                         </div>
                       </div>
+                 
                     </div>
                         <div class="form-group" >
                           <label for="dateTender">date Tender:</label>
@@ -87,8 +88,44 @@
                         </div>
                         <button type="submit" class="btn btn-primary" (click)="deletetender(tend.id)" [routerLink]="['/gettender']" > supprime tender</button>
                         <button href="#" class="btn btn-primary"  [routerLink]="['/updatetender',tend.id]" > update tender</button>
-                  
-                  
+                        <ul class="tender-products">
+                          <li *ngFor="let product of tend.products">
+                            <div class="card mb-9">
+                              <img class="card-img-top small-image" src="http://localhost:9090/imageProduct/{{ product.image }}" alt="Card image cap">
+                              <div class="card-body"> 
+                                <h5 class="card-title"> Name : {{ product.name }}</h5>
+                                <p class="card-text"> Description : {{ product.description }}</p>
+                                <p class="card-text"> Stock : {{ product.qte }}</p>
+                                <p class="card-text"> Price : {{ product.price }}</p>
+                               
+                                
+                              
+                                <button href="#" class="btn btn-primary"> accepter</button>
+
+                                <div class="form-group">
+                            <label for="comment">score</label>
+                            <input
+                            type="text"
+                            class="form-control"
+                            name="operatorScore.score"
+                            #name="ngModel" [(ngModel)]="operatorScore.score" 
+                           
+                          />                          
+                     
+                          <button type="submit" class="btn btn-primary" (click)="addScore(operatorScore,tend.user_id,product.id)" > Add</button>
+                        </div>
+                              </div>
+                            </div>
+                          </li>
+                         
+                          
+                                
+                          
+                        </ul>
+                      
+                             
+                          
+                       
                         
                         
 
@@ -122,6 +159,7 @@
                 </div>
             </main>
         </div>
+        
         
         <app-footer></app-footer>
     </div>

@@ -18,3 +18,15 @@
 .product-price {
     color: gray;
 }
+/* Styles pour chaque élément de produit */
+.grid-item {
+  display: inline-block; /* Afficher les produits en ligne */
+  margin-right: 10px; /* Espacement horizontal entre les produits */
+  margin-bottom: 10px; /* Espacement vertical entre les produits */
+  /* Ajoutez d'autres styles spécifiques à chaque produit si nécessaire */
+}
+
+/* Empêcher le dernier élément d'avoir une marge droite */
+.grid-item:last-child {
+  margin-right: 0;
+}

@@ -12,17 +12,25 @@ import { ListcategoryComponent } from './category/listcategory/listcategory.comp
 import { AddProduitComponent } from './add-produit/add-produit.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { ListtenderComponent } from './listtender/listtender.component';
+import { OrderComponent } from './order/order.component';
+import { ListproductComponent } from './listproduct/listproduct.component';
 
 
 
 @NgModule({
   declarations: [
+    ListtenderComponent,
+    ListproductComponent,
+    OrderComponent,
+    
     AdminComponent,
     HomeComponent,
     LoginComponent,
     AddcategoryComponent,
     ListcategoryComponent,
     AddProduitComponent,
+   
     RegistreComponent
   ],
   imports: [

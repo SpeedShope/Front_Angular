@@ -19,7 +19,13 @@ export class GetTenderComponent implements OnInit {
   tenders$!: Observable<Tender[]>;
   tenders: Tender[] = [];
   similarProducts!: Tender[];
-  productUrl!: string;
+  productUrl!: any;
+  currentPage: number = 1;
+  itemsPerPage: number = 6; 
+  nom: string = '';
+  searchText = '';
+  marque: string = '';
+  filteredTenders: any[] = [];
 
   constructor( private tenderService: tender) { }
 
@@ -37,28 +43,45 @@ export class GetTenderComponent implements OnInit {
       }
     );
   }
-  filterTenders() {
-    this.tenderService.filterTenders(this.name, this.description, this.brand)
-      .subscribe(tenders => this.tenders = tenders);
-  }
-  search(): void {
-    this.tenders$ = this.tenderService.filterTenders(
-      this.searchTerm,
-      this.searchTerm,
-      this.searchTerm
-    );
-  }
-  getSimilarProducts(): void {
+
+  getSimilarProducts() {
     this.tenderService.getSimilarProducts(this.productUrl)
       .subscribe(
-        (products: Tender[]) => {
-          this.similarProducts = products;
+        (response) => {
+          this.similarProducts = response;
         },
-        (error: any) => {
-          console.error('Une erreur s\'est produite lors de la récupération des produits similaires.', error);
+        (error) => {
+          console.error(error);
         }
       );
   }
+
+  get totalPages(): number {
+    return Math.ceil(this.tenders.length / this.itemsPerPage);
+  }
+  
+  // Méthodes
+  get pagedTenders(): any[] {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+    return this.tenders.slice(startIndex, endIndex);
+  }
+  
+  changePage(page: number) {
+    this.currentPage = page;
+  }
+  filterTenders() {
+    this.tenderService.filterTenders(this.nom, this.description, this.marque)
+      .subscribe(
+        (response) => {
+          this.filteredTenders = response;
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
+  }
+  
 
 
 

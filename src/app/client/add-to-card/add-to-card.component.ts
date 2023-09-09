@@ -46,34 +46,35 @@ this.router.navigate(['/client/home'])
   delete(){
     this.cart.deleteCard(this.i)
   }
-  onSubmit(){
-    this.saveOrer();
-      }
-      saveOrer(){
-    this.orderSerice.addOrder(this.order).subscribe(data=>
-      {
+  // onSubmit(){
+  //   this.saveOrer();
+  //     }
+  //     saveOrer(){
+        
+  //   this.orderSerice.addOrder(this.order,[undefined],null).subscribe(data=>
+  //     {
     
-        this.idcmd=data.id
-        this.c=data.code
-        console.log(data);
-    this.goToHome();
-    this.getCode().subscribe(data=>
-      {
-        this.codePromo=data
-        if(this.codePromo!=this.c){
-          this.add(this.bill, this.idcmd)
-        }
-        else{
-          this.addd(this.bill,this.idcmd,this.c)
+  //       this.idcmd=data.id
+  //       this.c=data.code
+  //       console.log(data);
+  //   this.goToHome();
+  //   this.getCode().subscribe(data=>
+  //     {
+  //       this.codePromo=data
+  //       if(this.codePromo!=this.c){
+  //         this.add(this.bill, this.idcmd)
+  //       }
+  //       else{
+  //         this.addd(this.bill,this.idcmd,this.c)
           
-        }
-      }
-      )
-      }, error=> console.log(error)
+  //       }
+  //     }
+  //     )
+  //     }, error=> console.log(error)
       
-      )
+  //     )
    
-      }
+  //     }
     
       goToHome(){
         this.router.navigate(['/order'])
@@ -100,11 +101,38 @@ this.router.navigate(['/client/home'])
        return this.billService.getCodePromo();
       }
 
-      open(){
+      open(id:number){
         this.diag.open(AddOrderPopupComponent)
       }
+    
+      retirer(id :number)
+      {
+        this.products = this.products.filter(item => item.id !== id)
+      }
 
+      plus(index : number)
+      {
+        this.products[index].qte++;
+      }
 
+      minus(index : number)
+      {
+        this.products[index].qte--;
+       if (this.products[index].qte == 0)
+       this.retirer(this.products[index].id);
+      }
 
+      checkout()
+       {
+        let order : Order = new Order();
+        let bill : Bill = new Bill();
+        bill.price = this.products.reduce((total, item) => total + item.price, 0);
+
+        this.orderSerice.addOrder(order,this.products,bill).subscribe(
+         () =>   this.products = []
+        )
+        console.log(this.products)
+        
+      }
 
 }

@@ -149,24 +149,21 @@
           <h2 class="sr-only">Products</h2>
           <div class="grid row c-lg-4 c-md-3 c-sm-2 loaded" data-toggle="isotope"
         style="position: relative; height: 3093.3px; transition: height 0.5s ease 0s;">
-        <div class="grid-item home-page" *ngFor="let product of products" style="position: absolute; left: 0px; top: 0px; animation-fill-mode: none;">
-          <a  target="_blank"
-            class="demo-item scale-eff bottom-scale-eff appear-animate fadeInUpShort animated" data-appear-options="{
-                      &quot;name&quot;: &quot;fadeInUpShort&quot;,
-                      &quot;delay&quot;: 600
-                    }" style="animation-duration: 1000ms; animation-delay: 600ms;">
-                    <div class="product-container" [routerLink]="['/client/showPr',product.id]" >
-                      <img src="http://localhost:9090/imageProduct/{{ product.image }}" 
-                           alt="demo preview" class="square-image">
-                      <div class="product-name">{{ product.name }}</div>
-                      <div class="product-price">{{ product.price }}$</div>
-                      
-                  </div>
-                  
-                  
-                  
+        <div class="grid-item home-page" *ngFor="let product of products">
+          <a target="_blank"
+            class="demo-item scale-eff bottom-scale-eff appear-animate fadeInUpShort animated"
+            data-appear-options="{ &quot;name&quot;: &quot;fadeInUpShort&quot;, &quot;delay&quot;: 600 }"
+            style="animation-duration: 1000ms; animation-delay: 600ms;">
+            <div class="product-container" [routerLink]="['/client/showPr', product.id]">
+              <img src="http://localhost:9090/imageProduct/{{ product.image }}" alt="demo preview" class="square-image">
+              <div class="product-name">{{ product.name }}</div>
+              <div class="product-price">{{ product.price }}$</div>
+            </div>
           </a>
         </div>
+        
+        En supprimant les styles de position absolue, les produits devraient s'organiser automatiquement côte à côte dans la grille, à condition que les styles CSS globaux ou d'autres styles perturbateurs n'interfèrent pas. Assurez-vous également que la classe grid-item est correctement appliquée à chaque élément de produit si elle est nécessaire pour d'autres styles spécifiques.
+        
 
       </div>
       

@@ -99,4 +99,21 @@ nav a {
 .profile-card button.btn:hover {
   background-color: #0056b3; /* Change to the desired background color on hover */
 }
+.profile-card a {
+  display: inline-block;
+  background-color: #f8f9fa;
+  color: #333;
+  padding: 8px 12px;
+  border-radius: 50%;
+  font-size: 18px;
+  margin-left: 10px;
+  text-decoration: none;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.profile-card a:hover {
+  background-color: #333;
+  color: #fff;
+}
+
 

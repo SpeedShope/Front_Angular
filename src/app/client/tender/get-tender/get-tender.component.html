@@ -1,27 +1,30 @@
 <app-header></app-header>
-<div class="search-bar">
-  <input type="text" [(ngModel)]="productUrl" placeholder="Product URL">
-  <a  class="btn btn-primary" (click)="getSimilarProducts()">Search</a>
-</div>
-<div class="container">
+
+
+<table class="table table-striped">
+
+<div class="container" style="margin: 11em;" >
+  <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+aria-label="Search" aria-describedby="basic-addon2" [(ngModel)]="searchText" >
   <div class="row">
-  
-    
     <div class="col-md-12">
       <div class="row">
-        <div class="col-4" *ngFor="let tender of tenders">
+        <div class="col-4" *ngFor="let tender of pagedTenders |filter:searchText">
           <div class="card mb-9">
-            <img class="card-img-top" src="http://localhost:9090/images/{{tender.name}}.png" alt="Card image cap">
+            <img class="card-img-top" src="http://localhost:9090/images/{{tender.name}}{{tender.description}}.png" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">{{ tender.name }}</h5>
-             
-            
-              <a href="#" class="btn btn-primary"[routerLink]="['/client/detailtender',tender.id]">View Details</a>
+              <a href="#" class="btn btn-primary" [routerLink]="['/client/detailtender', tender.id]">View Details</a>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+  
+  <div class="pagination">
+    <button class="btn btn-primary" [disabled]="currentPage === 1" (click)="changePage(currentPage - 1)">Previous</button>
+    <button class="btn btn-primary" [disabled]="currentPage === totalPages" (click)="changePage(currentPage + 1)">Next</button>
   </div>
 </div>
 

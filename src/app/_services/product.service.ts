@@ -10,6 +10,7 @@ import { Product } from '../models/product';
 export class ProductService {
   apiUrl="http://localhost:9090/api/product"
   private apiC ='http://localhost:9090/api/category/getAll';
+  private url="http://localhost:9090/api/product/showAll";
   constructor(private http:HttpClient) { }
 
 
@@ -56,5 +57,8 @@ export class ProductService {
   
     return this.http.post<Product>(`${this.apiUrl}/add_image`, formData);
   }
+  getproducttender(id:number):Observable<Product[]>{
+    return this.http.get<Product[]>(this.url+'/' + id)
+    }
 
 }

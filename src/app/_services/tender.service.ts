@@ -29,6 +29,7 @@ export class tender {
 
 
     form.append('tender',annonceBlob);
+    
     form.append('image',file);
     return this.http.post<Tender>(this.addUrl+"/add_image", form);
   }
@@ -68,6 +69,10 @@ updateDelivery( tender: Tender,  id: any): Observable<any> {
 getSimilarProducts(productUrl: string): Observable<Tender[]> {
   const url = `${this.baseUrl}/similar?url=${productUrl}`;
   return this.http.get<Tender[]>(url);
+}
+deleteTender1(id: number): Observable<any> {
+
+  return this.http.delete(this.url+'admin/' + id);
 }
 
 

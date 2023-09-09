@@ -6,6 +6,11 @@ import { tender } from 'src/app/_services/tender.service';
 import { CommentService } from 'src/app/_services/comment.service';
 import { catchError, of } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
+import { ProductService } from 'src/app/_services/product.service';
+import { Product } from 'src/app/models/product';
+import { score } from 'src/app/models/operatorscore';
+import { User } from 'src/app/models/user';
+import { UserService } from 'src/app/_services/user.service';
 @Component({
   selector: 'app-detail-tender',
   templateUrl: './detail-tender.component.html',
@@ -15,8 +20,15 @@ export class DetailTenderComponent implements OnInit {
   id!:number;
   public tend!: Tender;
   public comment: Comment= new Comment();
-  constructor(private tender: tender,
-    private router:Router ,private com:CommentService ,private currentRoute: ActivatedRoute) { }
+  public user: User= new User();
+  public operatorScore: score= new score();
+  idoperateur!: number;
+  idproduct!: number;
+  products : Product[] = [];
+
+  public product: Product= new Product();
+  constructor(private userService: UserService,private tender: tender,
+    private router:Router ,private com:CommentService ,private pro:ProductService,private currentRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.id= this.currentRoute.snapshot.params['id'];
@@ -28,7 +40,13 @@ export class DetailTenderComponent implements OnInit {
       this.tender.getTenderById(this.id).subscribe(
         (object : Tender)=> this.tend=object
       )
+      
+  
+      
   }
+  this.userService.getMyProfile().subscribe(
+
+  );
 
 }
 onSubmit(){this.id= this.currentRoute.snapshot.params['id'];
@@ -68,5 +86,18 @@ onSubmit(){this.id= this.currentRoute.snapshot.params['id'];
            
             this.refresh()}
           )}
+          showoffre(idTender: any): void {
+            this.pro.getproducttender(idTender).subscribe(
+            
+             
+           
+            )}
+            addScore(operatorScore: score,idoperateur:number,idproduct:number): void {
+              this.com.addScore(operatorScore,idoperateur,idproduct).subscribe(()=>{ 
+              
+               
+                this.refresh()}
+              )}
+
 
 }

@@ -17,11 +17,13 @@
               <td class="align">{{ i + 1 }}</td>
               <td class="align">{{ item.name }}</td>
               <td class="align price">{{ item.price }}</td>
-              <td class="align">{{ item.qte }}</td>
+            
+
+              <td class="align" id="qte" name="item.qte" [(ngModel)]="item.qte"><button (click)="minus(i)"><i class="fas fa-minus"></i></button>{{ item.qte }}<button (click)="plus(i)"><i class="fas fa-plus"></i></button></td>
               <td class="align">
                 <div class="row">
-                  <button class="btn checkout-btn" (click)="open()">Checkout</button>
-                  <button class="btn delete-btn" (click)="delete()">
+                  <!-- <button class="btn checkout-btn" (click)="open()">Checkout</button> -->
+                  <button class="btn delete-btn" (click)="retirer(item.id)">
                     <i class="fas fa-trash"></i>
                   </button>
                 </div>
@@ -32,7 +34,9 @@
       </div>
     </div>
   </div>
+  
   <div class="btn-container">
+    <button class="btn checkout-btn" (click)="checkout()">Checkout</button>
     <button class="btn shop-more-btn" (click)="versroute()">Shop More</button>
     <button class="btn clear-btn" (click)="clear()">Clear Cart</button>
     <span class="total">Total: {{ sum | currency }}</span>
@@ -40,6 +44,7 @@
 </ng-container>
 
 <ng-container *ngIf="products.length === 0">
+
   <div class="container">
     <h1 class="card-title text-center">Panier</h1>
     <div class="text-center mt-5">
