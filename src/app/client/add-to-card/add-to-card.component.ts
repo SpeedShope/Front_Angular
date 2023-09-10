@@ -127,8 +127,9 @@ this.router.navigate(['/client/home'])
         let order : Order = new Order();
         let bill : Bill = new Bill();
         bill.price = this.products.reduce((total, item) => total + item.price, 0);
-
-        this.orderSerice.addOrder(order,this.products,bill).subscribe(
+        order.products = this.products;
+        order.bill = bill;
+                this.orderSerice.addOrder(order).subscribe(
          () =>   this.products = []
         )
         console.log(this.products)

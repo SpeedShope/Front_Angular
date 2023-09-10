@@ -20,18 +20,10 @@ export class OrderService {
   }
 
 
-  addOrder(order : Order,products : Product[],bill : Bill):Observable<Order>{
-    let formData = new FormData();
-    const annonceBlob = new Blob([JSON.stringify(products)], { type: 'application/json' });
-formData.append('order',JSON.stringify(order));
-formData.append('products', JSON.stringify(products));
-formData.append('bill', JSON.stringify(bill));
+  addOrder(order : Order):Observable<Order>{
 
-const headers = new HttpHeaders({
-  'Content-Type':'multipart/form-data'
-});
 
-    return this.http.post<Order>(`${this.urll}`,formData, {headers})
+    return this.http.post<Order>(`${this.urll}`,order)
   }
   deleteOrder(id:number){
     return this.http.delete("http://localhost:9090/api/order/delete/"+id)
