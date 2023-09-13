@@ -19,7 +19,7 @@ export class ContractsDetailsAdminComponent {
   ngOnInit() {
     this.contractService.getAllContracts().subscribe((contracts) => {
       // Filter out the accepted contracts
-      this.contracts = contracts.filter(contract => !contract.signature);
+      this.contracts = contracts.filter(contract => !contract.acceptstatus );
     });
   }
 
