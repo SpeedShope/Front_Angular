@@ -1,10 +1,10 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { HttpClientModule } from '@angular/common/http';
+
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Order } from '../models/order';
 import { Bill } from '../models/bill';
-import { Product } from '../models/product';
+
 
 
 @Injectable({

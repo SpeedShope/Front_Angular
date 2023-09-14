@@ -8,7 +8,6 @@ import { HomeComponent } from "./client/home/home.component";
 import { AddProduitComponent } from "./admin/add-produit/add-produit.component";
 import { AddcategoryComponent } from "./admin/category/addcategory/addcategory.component";
 import { ListcategoryComponent } from "./admin/category/listcategory/listcategory.component";
-import { ShowproductComponent } from "./client/productClient/showproduct/showproduct.component";
 
 const routes: Routes = [
     { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },

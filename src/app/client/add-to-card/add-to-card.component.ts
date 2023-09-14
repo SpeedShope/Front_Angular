@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Product } from '../../models/product';
+import { Product } from 'src/app/models/product';
 import { Order } from '../../models/order';
 import { Bill } from '../../models/bill';
 import { AddToCardService } from '../../_services/add-to-card.service';
@@ -143,7 +143,7 @@ this.router.navigate(['/client/home'])
             console.log(object);
 
           })
-          console.log(lastElement.id)
+         
 
         })
         
