@@ -11,7 +11,9 @@
           <th>Car Model</th>
           <th>Car Type</th>
           <th>Signature</th>
+          <th>status</th>
           <th>Action</th>
+
         </tr>
       </thead>
       <tbody>
@@ -25,6 +27,8 @@
           <td>{{ contract.carModel }}</td>
           <td>{{ contract.carType }}</td>
           <td>{{ contract.signature ? 'Yes' : 'No' }}</td>
+          <td>{{ contract.acceptstatus ? 'Yes' : 'No' }}</td>
+
           <td>
             <button class="btn btn-success" (click)="acceptContract(contract)">Accept</button>
             <button class="btn btn-danger mx-2" (click)="refuseContract()">Refuse</button>

@@ -27,4 +27,7 @@ private contractsUrl='http://localhost:9090/api/contracts/getcontractByid';
   acceptContract(ContractId:number):Observable<any>{
     return this.http.put(`${this.baseUrl}acceptContract/${ContractId}`, {});
   }
+  getUserContracts(userid:number):Observable<any>{
+    return this.http.get(`${this.baseUrl}getUserContracts/${userid}`);
+  }
 }

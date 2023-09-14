@@ -19,7 +19,7 @@ export class ContractsDetailsAdminComponent {
   ngOnInit() {
     this.contractService.getAllContracts().subscribe((contracts) => {
       // Filter out the accepted contracts
-      this.contracts = contracts.filter(contract => !contract.acceptstatus );
+      this.contracts = contracts.filter(contract =>contract.acceptstatus==false );
     });
   }
 
@@ -36,7 +36,7 @@ export class ContractsDetailsAdminComponent {
       this.userService.changeUserRole(userId).subscribe(
         (response) => {
           // Remove the accepted contract from the list
-          this.contracts = this.contracts.filter((c) => c !== contract);
+          this.contracts = this.contracts.filter((c) => c!== contract);
   
           Swal.fire({
             icon: 'success',

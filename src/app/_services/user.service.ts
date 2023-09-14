@@ -43,19 +43,21 @@ export class UserService {
   }
   changeUserRole(userId: number): Observable<any> {
     const url = `${this.API_URL}ChangeUserRole/${userId}`;
-    this.ContractService.getAllContracts().subscribe((Response)=>{
-
-      const contracts = Response.filter(contract => contract.contractid );
     
-      for (let contract of contracts) {
+    this.ContractService.getAllContracts().subscribe((Response)=>{
+      const contracts = Response.filter(contract => contract.user.id === userId );
+      
+      for (var contract of contracts) {
         this.ContractService.acceptContract(contract.contractid).subscribe(
           ()=>{
-            console.log('Contract accepted successfully',contract.contractid);
+            console.log('Contract accepted successfully', contract.contractid);
           }
         );
       }
     })
+    
     return this.http.put(url, {}); // Send an empty body for PUT request
   }
+  
   
 }
