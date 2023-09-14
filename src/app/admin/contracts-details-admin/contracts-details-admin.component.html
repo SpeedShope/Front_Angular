@@ -1,0 +1,41 @@
+<div class="container">
+    <h1>List of Contracts</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Contract ID</th>
+          <th>Contract Duration</th>
+          <th>CIN</th>
+          <th>Has Car</th>
+          <th>Work Preference</th>
+          <th>Car Model</th>
+          <th>Car Type</th>
+          <th>Signature</th>
+          <th>status</th>
+          <th>Action</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Use *ngFor to loop through contracts and display them -->
+        <tr *ngFor="let contract of contracts">
+          <td>{{ contract.contractid }}</td>
+          <td>{{ contract.contractduration }}</td>
+          <td>{{ contract.cin }}</td>
+          <td>{{ contract.hasCar ? 'Yes' : 'No' }}</td>
+          <td>{{ contract.typeday }}</td>
+          <td>{{ contract.carModel }}</td>
+          <td>{{ contract.carType }}</td>
+          <td>{{ contract.signature ? 'Yes' : 'No' }}</td>
+          <td>{{ contract.acceptstatus ? 'Yes' : 'No' }}</td>
+
+          <td>
+            <button class="btn btn-success" (click)="acceptContract(contract)">Accept</button>
+            <button class="btn btn-danger mx-2" (click)="refuseContract()">Refuse</button>
+            <a class="btn btn-primary" [routerLink]="['/admin/home/detail', contract.contractid]">Details</a>
+        </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

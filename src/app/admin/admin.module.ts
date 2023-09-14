@@ -12,10 +12,15 @@ import { ListcategoryComponent } from './category/listcategory/listcategory.comp
 import { AddProduitComponent } from './add-produit/add-produit.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 import { ListtenderComponent } from './listtender/listtender.component';
 import { OrderComponent } from './order/order.component';
 import { ListproductComponent } from './listproduct/listproduct.component';
 import { ProfileUserComponent } from './profile-user/profile-user.component';
+
+import { ContractsDetailsAdminComponent } from './contracts-details-admin/contracts-details-admin.component';
+import { ContractDetailComponent } from './contract-detail/contract-detail.component';
+
 
 
 
@@ -31,8 +36,14 @@ import { ProfileUserComponent } from './profile-user/profile-user.component';
     AddcategoryComponent,
     ListcategoryComponent,
     AddProduitComponent,
+
    
-    RegistreComponent
+  
+
+    RegistreComponent,
+    ContractsDetailsAdminComponent,
+    ContractDetailComponent
+
   ],
   imports: [
     CommonModule,

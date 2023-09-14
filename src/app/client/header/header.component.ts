@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/_services/auth.service';
 import { StorageService } from 'src/app/_services/storage.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-header',
@@ -59,5 +60,7 @@ async ngOnInit(): Promise<void> {
   Login():void{
     this.router.navigate(['/client/login']);
   }
+
+ 
 
 }

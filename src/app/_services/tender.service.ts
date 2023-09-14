@@ -35,9 +35,7 @@ export class tender {
     return this.http.post<Tender>(this.addUrl+"/add_image", form);
   }
   getTenderById(id: number) {
-    const headers = new HttpHeaders();
-
-      
+    const headers = new HttpHeaders(); 
     return this.http.get<Tender>(this.urlGet+id, { "headers": headers })
   }
 

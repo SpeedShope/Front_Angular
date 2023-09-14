@@ -21,11 +21,9 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
     FormsModule,
-
     MatDialogModule,
-   
-   
     Ng2SearchPipeModule,
  
     

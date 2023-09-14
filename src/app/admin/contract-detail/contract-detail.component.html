@@ -1,0 +1,26 @@
+<div *ngIf="contractDetails">
+    <div class="container">
+      <h1>Contract Details</h1>
+      
+      <div>
+        <p><strong>Contract ID:</strong> {{ contractDetails.contractid }}</p>
+        <p><strong>Contract Duration:</strong> {{ contractDetails.contractduration }} months</p>
+        <p><strong>CIN:</strong> {{ contractDetails.cin }}</p>
+        <p><strong>Has Car:</strong> {{ contractDetails.hasCar ? 'Yes' : 'No' }}</p>
+        <p><strong>Work Preference:</strong> {{ contractDetails.typeday }}</p>
+        <p><strong>Car Model:</strong> {{ contractDetails.carModel }}</p>
+        <p><strong>Car Type:</strong> {{ contractDetails.carType }}</p>
+        <p><strong>Signature:</strong> {{ contractDetails.signature ? 'Yes' : 'No' }}</p>
+        
+        <!-- Display User Data -->
+        <h2>User Data</h2>
+        <p><strong>User ID:</strong> {{ contractDetails.user.id }}</p>
+        <p><strong>User Name:</strong> {{ contractDetails.user.nom }} {{ contractDetails.user.prenom }}</p>
+        <p><strong>Email:</strong> {{ contractDetails.user.email }}</p>
+        <!-- Add more user properties as needed -->
+      </div>
+      
+      <button (click)="goBack()" class="btn btn-primary">Back</button>
+    </div>
+  </div>
+  
