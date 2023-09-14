@@ -12,6 +12,7 @@ import { tender } from 'src/app/_services/tender.service';
 export class AddTenderComponent implements OnInit {
   public action!: string;
   public id!: number;
+
   tender: Tender = new Tender();
   image! : File;
   imageFile!: File;
@@ -38,6 +39,8 @@ export class AddTenderComponent implements OnInit {
   
     this.tenr.addTender(this.tender,this.image)
       .subscribe((res:any) => this.router.navigateByUrl("/get-tender"));
+      console.log(this.tender)
+
 }
 onImageSelected(event: any) {
    this.image = event.target.files[0];

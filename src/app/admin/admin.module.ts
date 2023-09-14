@@ -15,6 +15,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ListtenderComponent } from './listtender/listtender.component';
 import { OrderComponent } from './order/order.component';
 import { ListproductComponent } from './listproduct/listproduct.component';
+import { ProfileUserComponent } from './profile-user/profile-user.component';
 
 
 
@@ -23,7 +24,7 @@ import { ListproductComponent } from './listproduct/listproduct.component';
     ListtenderComponent,
     ListproductComponent,
     OrderComponent,
-    
+    ProfileUserComponent,
     AdminComponent,
     HomeComponent,
     LoginComponent,

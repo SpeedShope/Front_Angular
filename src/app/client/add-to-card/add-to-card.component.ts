@@ -133,7 +133,22 @@ this.router.navigate(['/client/home'])
          () =>   this.products = []
         )
         console.log(this.products)
+        this.send
         
       }
+      send() {
+        this.billService.getbill().subscribe(data => {
+          const lastElement = data[data.length - 1];
+          this.billService.sendEmailWithFacture(lastElement.id).subscribe(object => {
+            console.log(object);
+
+          })
+          console.log(lastElement.id)
+
+        })
+        
+      }
+
+
 
 }

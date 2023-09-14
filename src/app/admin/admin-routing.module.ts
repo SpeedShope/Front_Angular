@@ -10,6 +10,7 @@ import { ListcategoryComponent } from './category/listcategory/listcategory.comp
 import { ListtenderComponent } from './listtender/listtender.component';
 import { ListproductComponent } from './listproduct/listproduct.component';
 import { OrderComponent } from './order/order.component';
+import { ProfileUserComponent } from './profile-user/profile-user.component';
 
 const routes: Routes = [  { path:'', component:AdminComponent, children:[
   {path:'registre',component:RegistreComponent},
@@ -19,6 +20,7 @@ const routes: Routes = [  { path:'', component:AdminComponent, children:[
   {path:'listtender',component:ListtenderComponent},
   {path: 'listProductofcategory/:id' , component:ListproductComponent },
   {path:'order',component:OrderComponent},
+  {path: 'user', component: ProfileUserComponent},
   {path: 'listt' , component:ListcategoryComponent },
   {path:'home',component:HomeComponent},
   {path: '**' , pathMatch:"full" , redirectTo:"login" }

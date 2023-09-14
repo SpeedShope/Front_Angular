@@ -29,8 +29,9 @@ return this.http.post("http://localhost:9090/api/bill/add/"+id,bill)
      })
    }
    sendEmailWithFacture(id:number){
-  
-     return this.http.post('http://localhost:9090/api/mail/send-email/'+id,this.message);
+    console.log(id)
+     return this.http.post('http://localhost:9090/mail/send-email/'+id,this.message);
+ 
 
    }
    sendEmail(message:string){

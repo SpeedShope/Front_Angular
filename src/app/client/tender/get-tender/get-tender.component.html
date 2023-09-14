@@ -11,7 +11,7 @@ aria-label="Search" aria-describedby="basic-addon2" [(ngModel)]="searchText" >
       <div class="row">
         <div class="col-4" *ngFor="let tender of pagedTenders |filter:searchText">
           <div class="card mb-9">
-            <img class="card-img-top" src="http://localhost:9090/images/{{tender.name}}{{tender.description}}.png" alt="Card image cap">
+            <img class="card-img-top" src="http://localhost:9090/images/{{tender.description}}.png" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">{{ tender.name }}</h5>
               <a href="#" class="btn btn-primary" [routerLink]="['/client/detailtender', tender.id]">View Details</a>

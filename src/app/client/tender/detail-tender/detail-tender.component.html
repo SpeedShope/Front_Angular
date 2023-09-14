@@ -17,7 +17,7 @@
                 
                       >
                   <div>
-                    <img class="card-img-top" src="http://localhost:9090/images/{{ tend.name }}{{tend.description}}.png" alt="Card image cap">
+                    <img class="card-img-top" src="http://localhost:9090/images/{{tend.description}}.png" alt="Card image cap">
 
                     <div class="container" style="display: grid;align-items: center; justify-content: center; ">
                       <div class="justify-content-center" style="display: grid;align-items: center; justify-content: center; ">
@@ -87,7 +87,7 @@
                           <button type="submit" class="btn btn-primary" (click)="onSubmit()" > Add</button>
                         </div>
                         <button type="submit" class="btn btn-primary" (click)="deletetender(tend.id)" [routerLink]="['/gettender']" > supprime tender</button>
-                        <button href="#" class="btn btn-primary"  [routerLink]="['/updatetender',tend.id]" > update tender</button>
+                        <button href="#" class="btn btn-primary"  [routerLink]="['/client/updatetender',tend.id]" > update tender</button>
                         <ul class="tender-products">
                           <li *ngFor="let product of tend.products">
                             <div class="card mb-9">
@@ -100,7 +100,7 @@
                                
                                 
                               
-                                <button href="#" class="btn btn-primary"> accepter</button>
+                                <button href="#" class="btn btn-primary" [routerLink]="['/client/showPr', product.id]"> accepter</button>
 
                                 <div class="form-group">
                             <label for="comment">score</label>

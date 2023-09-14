@@ -31,6 +31,7 @@ export class tender {
     form.append('tender',annonceBlob);
     
     form.append('image',file);
+    console.log(annonceBlob)
     return this.http.post<Tender>(this.addUrl+"/add_image", form);
   }
   getTenderById(id: number) {
