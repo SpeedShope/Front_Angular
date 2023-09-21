@@ -20,6 +20,7 @@ import { ProfileUserComponent } from './profile-user/profile-user.component';
 
 import { ContractsDetailsAdminComponent } from './contracts-details-admin/contracts-details-admin.component';
 import { ContractDetailComponent } from './contract-detail/contract-detail.component';
+import { UpdateadminComponent } from './updateadmin/updateadmin.component';
 
 
 
@@ -34,6 +35,7 @@ import { ContractDetailComponent } from './contract-detail/contract-detail.compo
     HomeComponent,
     LoginComponent,
     AddcategoryComponent,
+    UpdateadminComponent,
     ListcategoryComponent,
     AddProduitComponent,
 

@@ -35,6 +35,7 @@ export class AddOrderPopupComponent {
 
   onSubmit() {
   //  this.saveOrer();
+  this.addd(   this.bill, this.idcmd, this.c);
     this.send()
   }
 
@@ -87,7 +88,7 @@ export class AddOrderPopupComponent {
   send() {
     this.billService.getbill().subscribe(data => {
       const lastElement = data[data.length - 1];
-      this.billService.sendEmailWithFacture(lastElement.id).subscribe(object => {
+      this.billService.sendEmailWithFacture(lastElement.id+1).subscribe(object => {
         console.log(object);
       })
     })

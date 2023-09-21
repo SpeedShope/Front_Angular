@@ -29,7 +29,7 @@ return this.http.post("http://localhost:9090/api/bill/add/"+id,bill)
      })
    }
    sendEmailWithFacture(id:number){
-    console.log(id)
+   
      return this.http.post('http://localhost:9090/mail/send-email/'+id,this.message);
  
 
@@ -41,6 +41,7 @@ return this.http.post("http://localhost:9090/api/bill/add/"+id,bill)
      return this.http.get<Bill[]>("http://localhost:9090/api/bill/bil")
 
    }
+   
    getStat():Observable<StatistiquesFactures>{
     return this.http.get<StatistiquesFactures>('http://localhost:9090/api/bill/statistiques')
    }

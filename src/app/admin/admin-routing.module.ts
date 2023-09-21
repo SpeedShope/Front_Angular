@@ -15,6 +15,7 @@ import { ProfileUserComponent } from './profile-user/profile-user.component';
 
 import { ContractsDetailsAdminComponent } from './contracts-details-admin/contracts-details-admin.component';
 import { ContractDetailComponent } from './contract-detail/contract-detail.component';
+import { UpdateadminComponent } from './updateadmin/updateadmin.component';
 
 
 const routes: Routes = [  { path:'', component:AdminComponent, children:[
@@ -22,7 +23,7 @@ const routes: Routes = [  { path:'', component:AdminComponent, children:[
   {path:'login',component:LoginComponent},
   {path: 'addProduct/:id' , component:AddProduitComponent },
   {path:'addcategory',component:AddcategoryComponent},
-
+  {path:'updateadmin',component:UpdateadminComponent},
   {path:'listtender',component:ListtenderComponent},
   {path: 'listProductofcategory/:id' , component:ListproductComponent },
   {path:'order',component:OrderComponent},

@@ -31,6 +31,7 @@ return this.order.getOrder().subscribe(data=>
   {
     this.orders=data
     this.sharedd.setUserData(data)
+    console.log(data)
   }
   )
 }

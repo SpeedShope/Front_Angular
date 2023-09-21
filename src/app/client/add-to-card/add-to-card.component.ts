@@ -132,20 +132,23 @@ this.router.navigate(['/client/home'])
                 this.orderSerice.addOrder(order).subscribe(
          () =>   this.products = []
         )
-        console.log(this.products)
-        this.send
+        console.log(order)
+        this.send()
+   // this.open(this.idcmd)
         
       }
       send() {
         this.billService.getbill().subscribe(data => {
-          const lastElement = data[data.length - 1];
-          this.billService.sendEmailWithFacture(lastElement.id).subscribe(object => {
+          const lastElement = data[data.length -1 ];
+          this.billService.sendEmailWithFacture(lastElement.id+1).subscribe(object => {
             console.log(object);
-
+            console.log(lastElement.id)
           })
+
          
 
         })
+        
         
       }
 
