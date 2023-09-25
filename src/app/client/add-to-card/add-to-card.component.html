@@ -1,48 +1,93 @@
 <ng-container *ngIf="products.length !== 0">
   <div class="container">
-    <div class="card-table">
-      <div class="cart-product">
+    <div class="card">
+      <div class="card-header">
+        <h1 class="card-title">Checkout</h1>
+        <p class="card-text">You have {{ products.length }} products in your cart</p>
+      </div>
+      <div class="card-body">
         <table class="table">
           <thead>
             <tr>
-              <th class="align">#</th>
+              <th>#</th>
               <th>Product Name</th>
+              <th>Quantity</th>
               <th>Price</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let item of products; let i = index">
-              <td class="align">{{ i + 1 }}</td>
-              <td class="align">{{ item.name }}</td>
-              <td class="align price">{{ item.price }}</td>
-            
-
-              <td class="align">
-                <div class="row">
-                  <!-- <button class="btn checkout-btn" (click)="open()">Checkout</button> -->
-                  <button class="btn delete-btn" (click)="retirer(item.id)">
-                    <i class="fas fa-trash"></i>
-                  </button>
-                </div>
+              <td>{{ i + 1 }}</td>
+              <td>{{ item.name }}</td>
+              <td>
+                <input
+                  type="number"
+                  [(ngModel)]="item.qte"
+                  [min]="1"
+                  [max]="item.qte"
+                  [value]="1"
+                  (input)="calculateTotal()"
+                  class="form-control"
+                />
+              </td>
+              <td>{{ item.price | currency }}</td>
+              <td>
+                <button class="btn btn-danger" (click)="retirer(item.id)">
+                  <i class="fas fa-trash"></i> Remove
+                </button>
               </td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
+
+    <!-- Delivery Address Section -->
+    <div class="card mt-4">
+      <div class="card-header">
+        <h4>Delivery Address</h4>
+      </div>
+      <div class="card-body">
+        <form>
+          <div class="form-group">
+            <label for="deliveryAddress">Address</label>
+            <input
+              type="text"
+              class="form-control"
+              id="deliveryAddress"
+              name="order.adressedestination"
+              #adressedestination="ngModel"
+              [(ngModel)]="order.adressedestination"
+              placeholder="Enter your delivery address"
+              required
+              (input)="validateDeliveryAddress()" 
+            />
+            <div *ngIf="!deliveryAddressValid && adressedestination.touched" class="text-danger">
+              Address is required.
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    
+    <div class="mt-4">
+      <button class="btn btn-success" (click)="checkout()" [disabled]="!deliveryAddressValid">
+        Checkout
+      </button>
+      <button class="btn btn-primary" (click)="versroute()">Continue Shopping</button>
+      <button class="btn btn-secondary" (click)="clear()">Clear Cart</button>
+      <span class="total">Total: {{ calculateTotal() | currency }}</span>
+    </div>
   </div>
-  
-  <div class="btn-container">
-    <button class="btn checkout-btn" (click)="checkout()">Checkout</button>
-    <button class="btn shop-more-btn" (click)="versroute()">Shop More</button>
-    <button class="btn clear-btn" (click)="clear()">Clear Cart</button>
-    <span class="total">Total: {{ sum | currency }}</span>
-  </div>
+    
 </ng-container>
 
 <ng-container *ngIf="products.length === 0">
-
   <div class="container">
-    <h1 class="card-title text-center">Panier</h1>
+    <h1 class="card-title text-center">Cart</h1>
     <div class="text-center mt-5">
+      <!-- Your content here -->
+    </div>
+  </div>
+</ng-container>

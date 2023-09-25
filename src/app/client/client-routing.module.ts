@@ -17,6 +17,8 @@ import { DeliveryagentFormComponent } from './deliveryagent-form/deliveryagent-f
 import { OurServiceFormComponent } from './our-service-form/our-service-form.component';
 import { ShowproductComponent } from './productClient/showproduct/showproduct.component';
 import { AddToCardComponent } from './add-to-card/add-to-card.component';
+import { AddOrderPopupComponent } from './add-order-popup/add-order-popup.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 
 const routes: Routes = [  { path:'', component:ClientComponent, children:[
@@ -39,6 +41,8 @@ const routes: Routes = [  { path:'', component:ClientComponent, children:[
 },
 {path:'showPr/:id',component:ShowproductComponent}, 
 {path:'add-to-card',component:AddToCardComponent},
+{path:'add-order',component:AddOrderPopupComponent},
+{path:'checkout',component:CheckoutComponent},
 
 
   {path: '**' , pathMatch:"full" , redirectTo:"login" }

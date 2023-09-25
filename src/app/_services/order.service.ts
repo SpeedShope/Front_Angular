@@ -22,8 +22,9 @@ export class OrderService {
 
   addOrder(order : Order):Observable<Order>{
 
-
+console.log(order)
     return this.http.post<Order>(`${this.urll}`,order)
+
   }
   deleteOrder(id:number){
     return this.http.delete("http://localhost:9090/api/order/delete/"+id)

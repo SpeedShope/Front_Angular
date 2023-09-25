@@ -1,28 +1,104 @@
 
-<form (ngSubmit)="onSubmit()" name="orderForm" class="order-form">
-    <div class="form-group">
-        <label for="code" class="form-label">Code promo :</label>
-        <div class="input-group">
-            <input type="text" class="form-control" id="code" name="order.code" [(ngModel)]="order.code">
-            <div class="input-group-append">
-                
+
+<section class="mt-50 mb-50">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 mb-40">
+                <h1 class="heading-2 mb-10">Your Cart</h1>
+                <div class="d-flex justify-content-between">
+                    <h6 class="text-body">There are <span class="text-brand">0</span> bio products in your cart and
+                        <span class="text-brand">0</span> composts</h6>
+                    <h6 class="text-body"><a aria-current="page" class="text-muted active" href="/cart"><i
+                                class="fi-rs-trash mr-5"></i>Clear Cart</a></h6>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="table-responsive shopping-summery">
+                    <table class="table table-wislist">
+                        <thead>
+                            <tr class="main-heading">
+                                <th class="custome-checkbox start pl-30" colspan="2">Product</th>
+                                <th class="col">Unit Price</th>
+                                <th class="col">Quantity</th>
+                                <th class="col">Subtotal</th>
+                                <th class="col">Remove</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="image product-thumbnail"><img></td>
+                                <td class="product-des product-name">
+                                    <h6 class="product-name"><a class=""
+                                            href="/compost-details/Description">Tomato12</a></h6>
+                                    <div class="product-rate-cover">
+                                        <div class="product-rate d-inline-block">
+                                            <div class="product-rating" style="width: 90%;"></div>
+                                        </div><span class="font-small ml-5 text-muted"> (4.0)</span>
+                                    </div>
+                                </td>
+                                <td class="price" data-title="Price">
+                                    <h4 class="text-brand">$15</h4>
+                                </td>
+                                <td class="text-center detail-info" data-title="Stock">
+                                    <div class="detail-extralink mr-15">
+                                        <div class="detail-qty border radius "><a aria-current="page"
+                                                class="qty-down active" href="/cart"><i
+                                                    class="fi-rs-angle-small-down"></i></a>
+                                            <div class="qty-val">1</div><a aria-current="page" class="qty-up active"
+                                                href="/cart"><i class="fi-rs-angle-small-up"></i></a>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="text-right" data-title="Cart">
+                                    <h4 class="text-body">$15</h4>
+                                </td>
+                                <td class="action" data-title="Remove"><a aria-current="page" class="text-muted active"
+                                        href="/cart"><i class="fi-rs-trash"></i></a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="cart-action text-end"><a class="" href="/composts"
+                        style="background-color: rgb(59, 183, 126); padding: 10px; color: rgb(255, 255, 255); display: inline-flex; border-radius: 5px;"><svg
+                            stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em"
+                            width="1em" xmlns="http://www.w3.org/2000/svg" style="font-size: 20px; margin-right: 5px;">
+                            <path
+                                d="M5 22h14c1.103 0 2-.897 2-2V9a1 1 0 0 0-1-1h-3V7c0-2.757-2.243-5-5-5S7 4.243 7 7v1H4a1 1 0 0 0-1 1v11c0 1.103.897 2 2 2zM9 7c0-1.654 1.346-3 3-3s3 1.346 3 3v1H9V7zm-4 3h2v2h2v-2h6v2h2v-2h2l.002 10H5V10z">
+                            </path>
+                        </svg>Continue Shopping</a></div>
+            </div>
+        </div>
+        <div class="divider center_icon mt-50 mb-50"><i class="fi-rs-fingerprint"></i></div>
+        <div class="row">
+            <div class="col-lg-6 col-md-12">
+                <div class="border p-md-4 p-30 border-radius cart-totals">
+                    <div class="heading_s1 mb-3">
+                        <h4>Cart Totals</h4>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td class="cart_total_label">Cart Subtotal</td>
+                                    <td class="cart_total_amount"><span class="font-lg fw-900 text-brand">$ 15.00</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="cart_total_label">Shipping</td>
+                                    <td class="cart_total_amount"><i class="ti-gift mr-5"></i>Free Shipping</td>
+                                </tr>
+                                <tr>
+                                    <td class="cart_total_label">Total</td>
+                                    <td class="cart_total_amount"><strong><span
+                                                class="font-xl fw-900 text-brand">$15.00</span></strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div><a class="btn" href="/checkout"><i class="fi-rs-box-alt mr-10"></i>Proceed To CheckOut</a>
+                </div>
             </div>
         </div>
     </div>
-
-
-
-    <div class="form-check">
-        <input type="checkbox" class="form-check-input" id="check" name="check">
-        <label class="form-check-label" for="check">Check me out</label>
-    </div>
-
-    <div class="form-group">
-        <button type="submit" class="btn btn-primary" >Valider</button>
-        <button type="button" class="btn btn-secondary" (click)="close()" >Fermer</button>
-    </div>
-</form>
-
-  
-  
-
+</section>

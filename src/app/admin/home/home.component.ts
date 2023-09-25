@@ -10,6 +10,8 @@ import { StorageService } from 'src/app/_services/storage.service';
 })
 export class HomeComponent {
   username?: string;
+  is_Supplier:boolean=false ;
+  is_Admin:boolean=false ;
   isLoggedIn = false;
  profilePictureUrl:String;
  roles:[];
@@ -23,6 +25,14 @@ export class HomeComponent {
     const user = await this.storageService.getUser();
     this.roles = this.storageService.getUser().roles;
     this.roles.map((i)=>{
+      if(i=="ROLE_SUPPLIER"){
+        this.is_Supplier=true
+      }
+      if(i=="ROLE_ADMIN"){
+        this.is_Admin=true
+      }
+      
+      else 
       if(i=="ROLE_DELIVERY"){
            this.priv_Deliv_agent=true;
       }

@@ -80,3 +80,25 @@
     background-color: #ffc107;
     color: #212529;
   }  
+  /* Styling for the quantity input component */
+.detail-qty {
+  display: flex;
+  align-items: center;
+}
+
+.qty-down,
+.qty-up {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+  border: 1px solid #ccc;
+}
+
+.qty-val {
+  margin: 0 10px;
+  font-weight: bold;
+}

@@ -59,38 +59,48 @@
                     <span>Users</span>
                 </a>
             </li>
-            <hr class="sidebar-divider">
+            <hr class="sidebar-divider" >
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
+            <li class="nav-item" >
                 <a class="nav-link collapsed" href="#" routerLink="/admin/addcategory"  data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
-                    <span>Product</span>
+                    <span>Categorie</span>
                 </a>
             </li>
-            <hr class="sidebar-divider">
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+            <hr class="sidebar-divider" >
+            <li class="nav-item" >
+                <a class="nav-link collapsed" href="#" routerLink="/admin/listtender"data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
-                    <span>Shipments</span>
+                    <span>Tender</span>
                 </a>
             </li>
-            <hr class="sidebar-divider">
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+            <hr class="sidebar-divider"  [hidden]="is_Supplier">
+            <li class="nav-item"[hidden]="is_Supplier" >
+                <a class="nav-link collapsed" href="#"  routerLink="/admin/order" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <span>Orders</span>
                 </a>
             </li>
-            <hr class="sidebar-divider">
-            <li class="nav-item">
+            <hr class="sidebar-divider" [hidden]="is_Supplier" >
+            <li class="nav-item" [hidden]="is_Supplier" >
                 <a class="nav-link collapsed" routerLink="/admin/home/contracts" data-toggle="collapse" data-target="#collapseTwo"
                    aria-expanded="true" aria-controls="collapseTwo">
                   <span>Contracts</span>
                 </a>
               </li>
+              <hr class="sidebar-divider" >
+              <li class="nav-item">
+                  <a class="nav-link collapsed" routerLink="/admin/listt" data-toggle="collapse" data-target="#collapseTwo"
+                     aria-expanded="true" aria-controls="collapseTwo">
+                    <span>Liste Categorie</span>
+                  </a>
+                </li>
               
         </ul>
+       
+          
+   
         
 
         <!-- Content Wrapper -->

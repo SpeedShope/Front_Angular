@@ -24,7 +24,8 @@ export class AddToCardComponent {
   idbill!:number
   c!: string;
   codePromo!: string
-  sum=0
+  sum: number = 0;
+  deliveryAddressValid: boolean = false;
   private idcmd!: number
   constructor(public cart : AddToCardService, private orderSerice:OrderService,
     private billService: BillService,private diag: MatDialog, private router : Router ) { }
@@ -40,6 +41,13 @@ export class AddToCardComponent {
   }
   versroute(){
 this.router.navigate(['/client/home'])
+  }
+  calculateTotal(): number {
+    let total = 0;
+    for (const item of this.products) {
+      total += item.qte * item.price;
+    }
+    return total;
   }
   
   
@@ -121,21 +129,27 @@ this.router.navigate(['/client/home'])
        if (this.products[index].qte == 0)
        this.retirer(this.products[index].id);
       }
+      validateDeliveryAddress() {
+        this.deliveryAddressValid = !!this.order.adressedestination;
+      }
 
-      checkout()
-       {
-        let order : Order = new Order();
-        let bill : Bill = new Bill();
-        bill.price = this.products.reduce((total, item) => total + item.price, 0);
-        order.products = this.products;
-        order.bill = bill;
-                this.orderSerice.addOrder(order).subscribe(
-         () =>   this.products = []
-        )
-        console.log(order)
-        this.send()
-   // this.open(this.idcmd)
-        
+      checkout() {
+        // Vérifiez d'abord si l'adresse de livraison est valide
+        this.validateDeliveryAddress();
+    
+        if (this.deliveryAddressValid) {
+          let bill: Bill = new Bill();
+          bill.price = this.products.reduce((total, item) => total + (item.price * item.qte), 0);
+          this.order.products = this.products;
+          this.order.bill = bill;
+    
+          this.orderSerice.addOrder(this.order).subscribe(
+            () => this.products = []
+          );
+    
+          console.log(this.order);
+          this.send();
+        }
       }
       send() {
         this.billService.getbill().subscribe(data => {

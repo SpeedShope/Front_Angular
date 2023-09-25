@@ -22,7 +22,7 @@ export class AddProduitComponent implements OnInit{
 
     this.productFormGroup = this.formBuilder.group({
       name: ['', Validators.required],
-      minStock: [null, Validators.required],
+      maxStock: [null, Validators.required],
       description: ['', Validators.required],
       price: [null, Validators.required],
       quantity: [null, Validators.required],
