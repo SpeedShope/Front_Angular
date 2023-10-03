@@ -69,7 +69,6 @@ export class HomeComponent {
       next: res => {
         console.log(res);
         this.storageService.clean();
-        this.router.navigate(['/client/login']);
       },
       error: err => {
         console.log(err);

@@ -19,7 +19,7 @@ interface MyProfile {
 })
 export class UserService {
    API_URL = 'http://localhost:9090/api/user/';
- 
+   apiUrldelivery='http://localhost:9090/api/user/getusersByroles'
 
   constructor(private http: HttpClient,private ContractService:ContractService) {}
 
@@ -58,6 +58,8 @@ export class UserService {
     
     return this.http.put(url, {}); // Send an empty body for PUT request
   }
-  
+  getAllDeliveries(): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrldelivery);
+  }
   
 }

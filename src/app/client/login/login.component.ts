@@ -49,7 +49,7 @@ export class LoginComponent {
               this.isLoggedIn = true;
               this.roles = this.storageService.getUser().roles;
               this.roles.map((i)=>{
-                if (i === 'ROLE_ADMIN') {
+                if (i === 'ROLE_ADMIN' || i==='ROLE_DELIVERY') {
                   this.isAdmin = true;
                  
                   setTimeout(() => {
@@ -57,11 +57,10 @@ export class LoginComponent {
                     sessionStorage.clear();
                     this.isLoginFailed = true;
                     this.isLoggedIn = false;
-                    this.router.navigate(['/admin/login']);
                   }, 3000);
                 }
                 // For non-admin users
-                else if (i != 'ROLE_ADMIN')  {
+                else if (i != 'ROLE_ADMIN' && i!='ROLE_DELIVERY')  {
                   this.isAdmin=false
                   this.isLoginFailed = false;
                   this.isLoggedIn = true;

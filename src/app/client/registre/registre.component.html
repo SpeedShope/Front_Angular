@@ -110,8 +110,28 @@
         Password must be at least 6 characters
       </div>
     </div>
-  </div>   
+  </div>  
 
+  <div class="form-group">
+    <label for="num_tel">Phone Number</label>
+    <input
+      type="num_tel"
+      class="form-control"
+      name="num_tel"
+      [(ngModel)]="form.num_tel"
+      required
+      minlength="8"
+      maxlength="8"
+      #num_tel="ngModel"
+      [ngClass]="{ 'is-invalid': f.submitted && num_tel.errors }"
+    />
+    <div class="invalid-feedback" *ngIf="num_tel.errors && f.submitted">
+      <div *ngIf="num_tel.errors['required']"> phone is required</div>
+      <div *ngIf="num_tel.errors['minlength']">
+       phone number must be at least 6 characters
+      </div>
+    </div>
+  </div>   
   <div class="form-group">
     <label for="email">Email</label>
     <input

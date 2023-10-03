@@ -1,0 +1,51 @@
+<div class="justify-content-center mx-3 my-3">
+  <h2 class="text-center" style="color: brown;">List Of Missions</h2>
+  <br>
+  <div class="table">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Order Code</th>
+          <th>Order Destination</th>
+          <th>Order Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let mission of Missions">
+          <td>{{ mission.order.id }}</td>
+          <td>{{ mission.order.code }}</td>
+          <td>{{ mission.order.adressedestination }}</td>
+          <td>{{ mission.status }}</td>
+          <td>
+            <div class="row">
+              <div class="col-md-4">
+                <button class="btn btn-primary" [routerLink]="['/admin/missions/billdetails', mission.id]" (click)="show()">Bill Detail</button>
+              </div>
+              <div class="col-md-4">
+                <button class="btn btn-primary">Buyer Detail</button>
+              </div>
+              <div class="col-md-4">
+                <button class="btn btn-primary"[routerLink]="['/admin/missions/AgentDetails', mission.id]" (click)="show()" >Agent Detail</button>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col col-sm-4">
+      <router-outlet *ngIf="checkClick"></router-outlet>
+    </div>
+    <div class="col col-sm-4">
+    </div>
+    <div class="col col-sm-4">
+
+      <router-outlet *ngIf="checkClick2"></router-outlet>
+
+    </div>
+  </div>
+</div>

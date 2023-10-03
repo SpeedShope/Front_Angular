@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin.component';
 import { RegistreComponent } from './registre/registre.component';
@@ -16,6 +16,10 @@ import { ProfileUserComponent } from './profile-user/profile-user.component';
 import { ContractsDetailsAdminComponent } from './contracts-details-admin/contracts-details-admin.component';
 import { ContractDetailComponent } from './contract-detail/contract-detail.component';
 import { UpdateadminComponent } from './updateadmin/updateadmin.component';
+import { AssignAgentPopupComponent } from './assign-agent-popup/assign-agent-popup.component';
+import { ListeMissionComponent } from './liste-mission/liste-mission.component';
+import { BilldetailsComponent } from './billdetails/billdetails.component';
+import { BuyerDetailsComponent } from './buyer-details/buyer-details.component';
 
 
 const routes: Routes = [  { path:'', component:AdminComponent, children:[
@@ -26,9 +30,15 @@ const routes: Routes = [  { path:'', component:AdminComponent, children:[
   {path:'updateadmin',component:UpdateadminComponent},
   {path:'listtender',component:ListtenderComponent},
   {path: 'listProductofcategory/:id' , component:ListproductComponent },
+  {path:'missions', component:ListeMissionComponent,children:[
+    {path:'billdetails/:id',component:BilldetailsComponent},
+    {path:'AgentDetails/:id',component:BuyerDetailsComponent}
+
+  ]},
+  ]},
   {path:'order',component:OrderComponent},
   {path: 'user', component: ProfileUserComponent},
-
+  {path:'assign-delivery-agent/:orderId',component:AssignAgentPopupComponent},
   {path: 'listt' , component:ListcategoryComponent },
   {path:'home',component:HomeComponent,children:[
     {path:'contracts',component:ContractsDetailsAdminComponent},
@@ -43,7 +53,7 @@ const routes: Routes = [  { path:'', component:AdminComponent, children:[
   {path: '**' , pathMatch:"full" , redirectTo:"login" }
   
  
-]}];
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

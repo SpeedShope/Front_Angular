@@ -1,0 +1,39 @@
+
+
+<div class="justify-content-center mx-3 my-3" >
+    <h2 class="text-center" style="color: brown;">List Of Delivery Agents </h2>
+    <br>
+    <div class="card-deck">
+        <div class="row">
+          <div class="col-md-4" *ngFor="let agent of delivery_agents">
+            <div class="card mb-4" style="width: 18rem;">
+              <img class="card-img-top" src="http://localhost:9090/images/{{ agent.image }}" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">{{ agent.nom }} {{ agent.prenom }}</h5>
+                <p class="card-text">Username: {{ agent.username }}</p>
+                <p class="card-text">Email: {{ agent.email }}</p>
+                <p class="card-text">Address: {{ agent.address }}</p>
+                <p class="card-text">Date of Birth: {{ agent.dateNaissance | date: 'mediumDate' }}</p>
+              </div>
+              <div class="card-footer">
+                <div class="row">
+                    <div class=" col ">
+                        <small  style="color: blue;"> {{ agent.roles[0].name }}</small>
+                    </div>
+                </div>
+<div class="row">
+    <div class="col ">
+        <i class="fa fa-plus" aria-hidden="true"></i> 
+        <button type="submit" (click)="assignAgent(agent.id) ">Assign Agent</button>
+    </div>
+</div>
+                  
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+  <!-- -->
+ 
+  

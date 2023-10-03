@@ -149,31 +149,139 @@
 
                     <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
 aria-label="Search" aria-describedby="basic-addon2" [(ngModel)]="searchText" >
+<!-- order.component.html -->
+
+
+<!-- Assuming your orders data is stored in a variable called 'orders' -->
 <table class="table table-striped">
-    
     <thead>
-       
-        <tr>
-            <th>Code Commande</th>
-  
-            <th>action</th>
-        </tr>
+      <tr>
+        <th>Code Commande</th>
+        <th>Address</th>
+        <th>Bill Price</th>
+        <th>Image Products</th>
+        <th>action</th>
+      </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let o of orders | paginate: { itemsPerPage: count, currentPage: p } | filter:searchText"(click)="selectRow(o)" >
+      <tr *ngFor="let o of orders" (click)="selectRow(o)">
+        <td>{{o.code}}</td>
+        <td>{{ o.adressedestination }}</td>
+        <td>{{ o.bill.price }}</td>
+        <td [width]="200" [height]="200">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                  <li *ngFor="let product of o.products; let i = index" data-target="#carouselExampleIndicators" [attr.data-slide-to]="i" [class.active]="i === 0"></li>
+                </ol>
+                <div class="carousel-inner">
+                  <div *ngFor="let product of o.products; let i = index" class="carousel-item" [class.active]="i === 0">
+                    <img class="d-block w-100" src="http://localhost:9090/imageProduct/{{ product.image }}/">
+    
+                      <h5 class="text-center">{{ product.name }}</h5>
+                      <p class="text-center">{{ product.description }}</p>
+                      
+                    
+                  </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+        </td>
+       
+          
+        <td>
+            <div class="row">
 
-            <td>{{o.code}}</td>
-            
-            <td>
-            <button class="btn delete-btn" (click)="delteOrder(o.id)"><i class="fas fa-trash"></i></button>
-            <a routerLink="/admin/user"><button (click)="getUserById(o.id)" >details</button></a>
-            </td>
-        </tr>
+                <div class="col ">
+                    <a routerLink="/admin/order"> 
+                        <button  (click)="delteOrder(o.id)">
+                            <i class="fas fa-trash "></i> Delete
+                        </button>
+                    </a>
+                   
+                </div>
+            </div>
+            <div class="row">
+                <div class="col ">
+                    <a routerLink="/admin/user">
+                        <button   (click)="getUserById(o.id)">
+                            <i class="fas fa-info-circle"></i> Details
+                        </button>
+                    </a>
+                </div>
+        </div>
+       
+              
+        <div class="row">
+
+                <div class="col ">
+                    <a [routerLink]="['/admin/assign-delivery-agent', o.id]" id="assignAgentBtn">
+                        <button>
+                          <i class="fas fa-user"></i> choose Agent
+                        </button>
+                      </a>
+                </div>
+       </div>
+
+        </td>
+        
+      </tr>
     </tbody>
-</table>
+  </table>
+  
+  <script>
+    document.getElementById('assignAgentBtn').addEventListener('click', function() {
+    $('#agentModal').modal('show');
+});
+
+  </script>
+
 <div class="text-right">
     <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </div>
+  
+  <!--  <div *ngIf="selectedOrder" class="justify-content-center" style="display: flex; justify-content: center; flex-direction: row;">
+    <h3>  Product Details for Order {{ selectedOrder.code }}</h3>
+
+
+  <--
+  <div id="productCarousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li *ngFor="let product of selectedOrder.products; let i = index" data-target="#productCarousel" [attr.data-slide-to]="i" [class.active]="i === 0"></li>
+    </ol>
+
+    <div class="carousel-inner" style="margin-top: 40%;" className="justify-content-center">
+      <div class="carousel-item" *ngFor="let product of selectedOrder.products; let i = index" [class.active]="i === 0">
+        <img class="d-block w-100" [src]="'http://localhost:9090/imageProduct/' + product.image" alt="{{ product.name }}">
+        <div class="carousel-caption d-none d-md-block">
+          
+        </div>
+        <h5>{{ product.name }}</h5>
+        <p>{{ product.description }}</p>
+      </div>
+    </div>
+
+    <a class="carousel-control-prev" href="#productCarousel" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#productCarousel" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+-->
+ 
+
+      
+   
 
                     <!-- Content Row -->
 

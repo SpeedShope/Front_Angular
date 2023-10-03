@@ -42,27 +42,27 @@
             <!-- Divider -->
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item my-3">
+            <li class="nav-item my-4 mx-1" className="justify-content-center">
                 <a class="nav-link" >
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                    <span class="text-center">Dashboard</span></a>
             </li>
 
             <!-- Divider -->
            
 
            
-            <hr class="sidebar-divider"  *ngIF="priv_Deliv_agent">
-            <li class="nav-item"  *ngIF="priv_Deliv_agent">
+            <hr class="sidebar-divider" *ngIf="is_Admin">
+            <li class="nav-item"  *ngIf="is_Admin">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <span>Users</span>
                 </a>
             </li>
-            <hr class="sidebar-divider" >
+            <hr class="sidebar-divider" *ngIf="is_Supplier">
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item" >
+            <li class="nav-item" *ngIf="is_Supplier">
                 <a class="nav-link collapsed" href="#" routerLink="/admin/addcategory"  data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <span>Categorie</span>
@@ -75,15 +75,22 @@
                     <span>Tender</span>
                 </a>
             </li>
-            <hr class="sidebar-divider"  [hidden]="is_Supplier">
-            <li class="nav-item"[hidden]="is_Supplier" >
+            <hr class="sidebar-divider"  [hidden]="!is_Admin">
+            <li class="nav-item"[hidden]="!is_Admin" >
                 <a class="nav-link collapsed" href="#"  routerLink="/admin/order" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <span>Orders</span>
                 </a>
             </li>
-            <hr class="sidebar-divider" [hidden]="is_Supplier" >
-            <li class="nav-item" [hidden]="is_Supplier" >
+            <hr class="sidebar-divider"  [hidden]="!is_Admin">
+            <li class="nav-item"  [hidden]="!is_Admin">
+                <a routerLink="/admin/missions" class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <span>Deliveries</span>
+                </a>
+            </li>
+            <hr class="sidebar-divider" *ngIf="is_Admin" >
+            <li class="nav-item"  *ngIf="is_Admin ==true" >
                 <a class="nav-link collapsed" routerLink="/admin/home/contracts" data-toggle="collapse" data-target="#collapseTwo"
                    aria-expanded="true" aria-controls="collapseTwo">
                   <span>Contracts</span>
@@ -182,8 +189,8 @@
                                     Activity Log
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" routerLink="/admin/login" data-target="#logoutModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                <a class="dropdown-item"  data-toggle="modal" routerLink="/admin/login" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400" (click)="logout()"></i>
                                     Logout
                                 </a>
                             </div>
@@ -234,15 +241,11 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close" (click)="logout()" routerLink="/admin/login">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" (click)="logout()">Logout</a>
-                </div>
+               
             </div>
         </div>
     </div>
