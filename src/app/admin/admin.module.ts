@@ -21,6 +21,10 @@ import { ProfileUserComponent } from './profile-user/profile-user.component';
 import { ContractsDetailsAdminComponent } from './contracts-details-admin/contracts-details-admin.component';
 import { ContractDetailComponent } from './contract-detail/contract-detail.component';
 import { UpdateadminComponent } from './updateadmin/updateadmin.component';
+import { AssignAgentPopupComponent } from './assign-agent-popup/assign-agent-popup.component';
+import { ListeMissionComponent } from './liste-mission/liste-mission.component';
+import { BilldetailsComponent } from './billdetails/billdetails.component';
+import { BuyerDetailsComponent } from './buyer-details/buyer-details.component';
 
 
 
@@ -38,13 +42,13 @@ import { UpdateadminComponent } from './updateadmin/updateadmin.component';
     UpdateadminComponent,
     ListcategoryComponent,
     AddProduitComponent,
-
-   
-  
-
     RegistreComponent,
     ContractsDetailsAdminComponent,
-    ContractDetailComponent
+    ContractDetailComponent,
+    AssignAgentPopupComponent,
+    ListeMissionComponent,
+    BilldetailsComponent,
+    BuyerDetailsComponent
 
   ],
   imports: [

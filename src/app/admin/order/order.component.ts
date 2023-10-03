@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Order } from 'src/app/models/order';
 import { User } from 'src/app/models/user';
 import { OrderService } from 'src/app/_services/order.service';
@@ -18,19 +18,26 @@ export class OrderComponent implements OnInit {
   selectedClient=0
   p: number = 1
   count : number = 5 
+  orderId :null;
   constructor(private order: OrderService, private router: Router ,private sharedd : ShareddService,
-     private shared : SharedService){}
+     private shared : SharedService,private route: ActivatedRoute){}
   ngOnInit(): void {
+
     this.getOrder()
-    
+     this.route.params.subscribe(params => {
+    this.orderId = params['orderId'];
+    // Now you have the order ID, you can use it as needed
+  });
        
   }
-
+  seeDetails(){}
 getOrder(){
 return this.order.getOrder().subscribe(data=>
   {
     this.orders=data
+
     this.sharedd.setUserData(data)
+
     console.log(data)
   }
   )

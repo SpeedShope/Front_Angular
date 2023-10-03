@@ -28,7 +28,6 @@ console.log(order)
   }
   deleteOrder(id:number){
     return this.http.delete("http://localhost:9090/api/order/delete/"+id)
-
   }
   addbill(bill :Bill){
     return this.http.post(`${this.u}`,bill)
