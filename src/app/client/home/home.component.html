@@ -144,32 +144,19 @@
         </li>
       </ul>
       
-      <div class="bg-white">
-        <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-          <h2 class="sr-only">Products</h2>
-          <div class="grid row c-lg-4 c-md-3 c-sm-2 loaded" data-toggle="isotope"
-        style="position: relative; height: 3093.3px; transition: height 0.5s ease 0s;">
-        <div class="grid-item home-page" *ngFor="let product of products">
-          <a target="_blank"
-            class="demo-item scale-eff bottom-scale-eff appear-animate fadeInUpShort animated"
-            data-appear-options="{ &quot;name&quot;: &quot;fadeInUpShort&quot;, &quot;delay&quot;: 600 }"
-            style="animation-duration: 1000ms; animation-delay: 600ms;">
-            <div class="product-container" [routerLink]="['/client/showPr', product.id]">
-              <img src="http://localhost:9090/imageProduct/{{ product.image }}" alt="demo preview" class="square-image">
+      <div class="product-grid" >
+        <div class="product-item" *ngFor="let product of products"  [routerLink]="['/client/showPr', product.id]" >
+          <a target="_blank" class="product-link">
+            <img src="http://localhost:9090/imageProduct/{{ product.image }}" alt="demo preview" class="product-image">
+            <div class="product-details" >
               <div class="product-name">{{ product.name }}</div>
               <div class="product-price">{{ product.price }}$</div>
             </div>
           </a>
         </div>
-        
-       
-        
-
       </div>
       
-          
-        </div>
-      </div>
+      
       
       
     </div>

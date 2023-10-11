@@ -36,12 +36,9 @@ import { ClientComponent } from '../client.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    TenderRoutingModule,
+   
     ReactiveFormsModule,
-    
-    
-    FormsModule
-    
+    FormsModule   
   ],
   providers: [],
  

@@ -21,6 +21,8 @@ import { ProfileUserComponent } from './profile-user/profile-user.component';
 import { ContractsDetailsAdminComponent } from './contracts-details-admin/contracts-details-admin.component';
 import { ContractDetailComponent } from './contract-detail/contract-detail.component';
 import { UpdateadminComponent } from './updateadmin/updateadmin.component';
+import { AddProduittenderComponent } from './add-produittender/add-produit.component';
+import { ListproducttenderComponent } from './listproducttender/listproduct.component';
 
 
 
@@ -29,6 +31,7 @@ import { UpdateadminComponent } from './updateadmin/updateadmin.component';
   declarations: [
     ListtenderComponent,
     ListproductComponent,
+    ListproducttenderComponent,
     OrderComponent,
     ProfileUserComponent,
     AdminComponent,
@@ -38,6 +41,7 @@ import { UpdateadminComponent } from './updateadmin/updateadmin.component';
     UpdateadminComponent,
     ListcategoryComponent,
     AddProduitComponent,
+    AddProduittenderComponent,
 
    
   

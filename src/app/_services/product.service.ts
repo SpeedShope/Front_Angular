@@ -33,14 +33,21 @@ export class ProductService {
     return this.http.post('http://localhost:9090/api/product/ajouterProduit/'+idCategory, formData, {headers});
 
   }
+  PostProducttender(formData: FormData,idtender:number) {
+    const headers = new HttpHeaders();
+    headers.append('Content-Type', 'multipart/form-data');
+
+    return this.http.post(' http://localhost:9090/api/product/provideTender/'+idtender, formData, {headers});
+
+  }
   deleteProduit(idProduct:number): Observable<void> {
 
     return this.http.delete<void>(this.apiUrl+"/delete/" +idProduct)
 
   }
-  getProductofcateg(idCategory:number): Observable<any> {
+  getProductofcateg(idtender:number): Observable<any> {
 
-    return this.http.get<any>(this.apiUrl+"/productsOfCategory/"+idCategory);
+    return this.http.get<any>("http://localhost:9090/api/product/showAll/"+idtender);
   }
   getProduct(idProduct:number): Observable<any> {
 

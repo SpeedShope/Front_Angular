@@ -72,11 +72,11 @@
     </div>
     
     <div class="mt-4">
-      <button class="btn btn-success" (click)="checkout()" [disabled]="!deliveryAddressValid">
+      <button class="btn btn-primary" (click)="checkout()" [disabled]="!deliveryAddressValid">
         Checkout
       </button>
       <button class="btn btn-primary" (click)="versroute()">Continue Shopping</button>
-      <button class="btn btn-secondary" (click)="clear()">Clear Cart</button>
+      <button class="btn btn-primary" (click)="clear()">Clear Cart</button>
       <span class="total">Total: {{ calculateTotal() | currency }}</span>
     </div>
   </div>

@@ -30,3 +30,46 @@
 .grid-item:last-child {
   margin-right: 0;
 }
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.product-item {
+  width: calc(33.33% - 20px); /* Pour afficher 3 produits par ligne avec un espace entre eux */
+  margin: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.product-item:hover {
+  transform: translateY(-5px);
+}
+
+.product-link {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  padding: 10px;
+}
+
+.product-image {
+  width: 100%; /* Utilisez la largeur de 100% pour que les images occupent toute la largeur du conteneur parent */
+  aspect-ratio: 1 / 1; /* Définissez le ratio d'aspect 1:1 pour maintenir un carré */
+  object-fit: cover; /* Pour que les images conservent leur ratio d'aspect */
+  margin-bottom: 10px;
+}
+
+.product-name {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.product-price {
+  font-size: 14px;
+  color: #e47911; /* Couleur du prix */
+}

@@ -16,16 +16,20 @@ import { ProfileUserComponent } from './profile-user/profile-user.component';
 import { ContractsDetailsAdminComponent } from './contracts-details-admin/contracts-details-admin.component';
 import { ContractDetailComponent } from './contract-detail/contract-detail.component';
 import { UpdateadminComponent } from './updateadmin/updateadmin.component';
+import { AddProduittenderComponent } from './add-produittender/add-produit.component';
+import { ListproducttenderComponent } from './listproducttender/listproduct.component';
 
 
 const routes: Routes = [  { path:'', component:AdminComponent, children:[
   {path:'registre',component:RegistreComponent},
   {path:'login',component:LoginComponent},
   {path: 'addProduct/:id' , component:AddProduitComponent },
+  {path: 'addProducttender/:id' , component:AddProduittenderComponent },
   {path:'addcategory',component:AddcategoryComponent},
   {path:'updateadmin',component:UpdateadminComponent},
   {path:'listtender',component:ListtenderComponent},
   {path: 'listProductofcategory/:id' , component:ListproductComponent },
+  {path: 'listProducttender/:id' , component:ListproducttenderComponent },
   {path:'order',component:OrderComponent},
   {path: 'user', component: ProfileUserComponent},
 

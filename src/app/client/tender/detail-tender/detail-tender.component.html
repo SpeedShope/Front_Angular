@@ -1,4 +1,3 @@
-
 <app-header></app-header>
 
 <body>
@@ -9,149 +8,107 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-7">
                             <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                <div class="card-header"><h3 class="text-center font-weight-light my-4">tender</h3></div>
+                                <div class="card-header">
+                                    <h3 class="text-center font-weight-light my-4">Tender</h3>
+                                </div>
                                 <div class="card-body">
-                                    <form
-    
-                        #f="ngForm"
-                
-                      >
-                  <div>
-                    <img class="card-img-top" src="http://localhost:9090/images/{{tend.description}}.png" alt="Card image cap">
+                                    <form #f="ngForm">
+                                        <div class="text-center">
+                                            <img class="card-img-top" src="http://localhost:9090/images/{{tend.description}}.png" alt="Tender Image">
+                                        </div>
 
-                    <div class="container" style="display: grid;align-items: center; justify-content: center; ">
-                      <div class="justify-content-center" style="display: grid;align-items: center; justify-content: center; ">
-                    <div class="form-group
-                    
-                    
-                    ">
-                    </div>
-                    
-                     
-                   </div>
-                     
-           
-                 <div class="form-group">
-                      <div class="form-group">
-                        <label for="dateTender">Name:</label>
-                       <a style="font-size: larger; font-weight: bolder; font-style: oblique; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-variant: initial;">{{tend.name}}</a>
-                       
-                      </div>
-                    </div>
-                      <div class="form-group">
-                        <label for="dateTender">Description:</label>
-                      <a style="font-size: larger; font-weight: bolder; font-style: oblique; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-variant: initial;"> {{tend.description}}</a> 
-                      </div>
-                  
-                  <div>
-                        <div class="form-group">
-                          <label for="dateTender">Quantity:</label>
-                          <a style="font-size: larger; font-weight: bolder; font-style: oblique; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-variant: initial;"> {{tend.quantity}}</a> 
-                        </div>
-                    </div>
-                        <div>
-                        
-                          <label for="dateTender">Brand:</label>
-                          <a style="font-size: larger; font-weight: bolder; font-style: oblique; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-variant: initial;"> {{tend.brand}}</a> 
-                         
-                        </div>
-                      </div>
-                 
-                    </div>
-                        <div class="form-group" >
-                          <label for="dateTender">date Tender:</label>
-                          <a style="font-size: larger; font-weight: bolder; font-style: oblique; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-variant: initial;"> {{tend.dateTender}}</a> 
-                        </div>   
-                        <ul class="tender-comments">
-                            
-                            <li *ngFor="let comments of tend.comments">
-                              <p class="comment-message">{{ comments.message }}</p>
-                              <ng-container>
-                              
-                                <button  class="fa fa-trash" (click)="delete(comments.id)">
-                                  
-                                  </button> 
-                                                                                      </ng-container>
-                            </li>
-                        </ul>
-                        <div class="form-group">
-                            <label for="comment">add a comment</label>
-                            <input
-                            type="text"
-                            class="form-control"
-                            name="comment.message"
-                            #name="ngModel" [(ngModel)]="comment.message" 
-                           
-                          />                          
-                     
-                          <button type="submit" class="btn btn-primary" (click)="onSubmit()" > Add</button>
-                        </div>
-                        <button type="submit" class="btn btn-primary" (click)="deletetender(tend.id)" [routerLink]="['/gettender']" > supprime tender</button>
-                        <button href="#" class="btn btn-primary"  [routerLink]="['/client/updatetender',tend.id]" > update tender</button>
-                        <ul class="tender-products">
-                          <li *ngFor="let product of tend.products">
-                            <div class="card mb-9">
-                              <img class="card-img-top small-image" src="http://localhost:9090/imageProduct/{{ product.image }}" alt="Card image cap">
-                              <div class="card-body"> 
-                                <h5 class="card-title"> Name : {{ product.name }}</h5>
-                                <p class="card-text"> Description : {{ product.description }}</p>
-                                <p class="card-text"> Stock : {{ product.qte }}</p>
-                                <p class="card-text"> Price : {{ product.price }}</p>
-                               
-                                
-                              
-                                <button href="#" class="btn btn-primary" [routerLink]="['/client/showPr', product.id]"> accepter</button>
+                                        <div class="mt-4">
+                                            <div class="form-group">
+                                                <label for="name">Name:</label>
+                                                <span class="font-weight-bold">{{ tend.name }}</span>
+                                            </div>
 
-                                <div class="form-group">
-                            <label for="comment">score</label>
-                            <input
-                            type="text"
-                            class="form-control"
-                            name="operatorScore.score"
-                            #name="ngModel" [(ngModel)]="operatorScore.score" 
-                           
-                          />                          
-                     
-                          <button type="submit" class="btn btn-primary" (click)="addScore(operatorScore,tend.user_id,product.id)" > Add</button>
-                        </div>
-                              </div>
-                            </div>
-                          </li>
-                         
-                          
-                                
-                          
-                        </ul>
-                      
-                             
-                          
-                       
-                        
-                        
+                                            <div class="form-group">
+                                                <label for="description">Description:</label>
+                                                <span class="font-weight-bold">{{ tend.description }}</span>
+                                            </div>
 
-                          
-                        
-                         
-                         
-                         
-                        
-                       
+                                            <div class="form-group">
+                                                <label for="quantity">Quantity:</label>
+                                                <span class="font-weight-bold">{{ tend.quantity }}</span>
+                                            </div>
 
-                     
-                       <!-- --> 
-              
-                   <!-- --> 
-                    
-                  
-                
-                      </form>
+                                            <div class="form-group">
+                                                <label for="brand">Brand:</label>
+                                                <span class="font-weight-bold">{{ tend.brand }}</span>
+                                            </div>
+                                        </div>
 
-                   
-                
+                                        <div class="form-group">
+                                            <label for="dateTender">Date Tender:</label>
+                                            <span class="font-weight-bold">{{ tend.dateTender }}</span>
+                                        </div>
+
+                                        <ul class="tender-comments">
+                                            <li *ngFor="let comment of tend.comments">
+                                                <p class="comment-message">{{ comment.message }}</p>
+                                                <button class="btn btn-sm btn-danger" (click)="delete(comment.id)">
+                                                    <i class="fa fa-trash"></i>
+                                                </button>
+                                            </li>
+                                        </ul>
+
+                                        <div class="form-group">
+                                            <label for="comment">Add a Comment</label>
+                                            <input
+                                                type="text"
+                                                class="form-control"
+                                                name="comment.message"
+                                                #name="ngModel"
+                                                [(ngModel)]="comment.message"
+                                            />
+                                            <button type="submit" class="btn btn-primary mt-2" (click)="onSubmit()">Add</button>
+                                        </div>
+
+                                        <button type="submit" class="btn btn-danger" (click)="deletetender(tend.id)" [routerLink]="['/gettender']">
+                                            Delete Tender
+                                        </button>
+
+                                        <a class="btn btn-primary" [routerLink]="['/client/updatetender', tend.id]">Update Tender</a>
+
+                                        <ul class="tender-products">
+                                            <li *ngFor="let product of tend.products">
+                                                <div class="card mb-4">
+                                                    <img
+                                                        class="card-img-top small-image"
+                                                        src="http://localhost:9090/imageProduct/{{ product.image }}"
+                                                        alt="Product Image"
+                                                    />
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Name: {{ product.name }}</h5>
+                                                        <p class="card-text">Description: {{ product.description }}</p>
+                                                        <p class="card-text">Stock: {{ product.qte }}</p>
+                                                        <p class="card-text">Price: {{ product.price }}</p>
+                                                       
+
+                                                        <button class="btn btn-primary" [routerLink]="['/client/showPr', product.id]">
+                                                            Accept
+                                                        </button>
+
+                                                        <div class="form-group mt-2">
+                                                            <label for="score">Score:</label>
+                                                            <div class="rating">
+                                                                <span class="star" (click)="setScore(1); addScore(operatorScore, 6, product.id)" [class.selected]="operatorScore.score >= 1"><i class="fa fa-star"></i></span>
+                                                                <span class="star" (click)="setScore(2); addScore(operatorScore, 6, product.id)" [class.selected]="operatorScore.score >= 2"><i class="fa fa-star"></i></span>
+                                                                <span class="star" (click)="setScore(3); addScore(operatorScore, 6, product.id)" [class.selected]="operatorScore.score >= 3"><i class="fa fa-star"></i></span>
+                                                                <span class="star" (click)="setScore(4); addScore(operatorScore, 6, product.id)" [class.selected]="operatorScore.score >= 4"><i class="fa fa-star"></i></span>
+                                                                <span class="star" (click)="setScore(5); addScore(operatorScore, 6, product.id)" [class.selected]="operatorScore.score >= 5"><i class="fa fa-star"></i></span>
+                                                            </div>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </form>
                                 </div>
                                 <div class="card-footer text-center py-3">
-                                   
-                                    
+                                    <!-- Footer content here -->
                                 </div>
                             </div>
                         </div>
@@ -159,8 +116,7 @@
                 </div>
             </main>
         </div>
-        
-        
+
         <app-footer></app-footer>
     </div>
 </body>

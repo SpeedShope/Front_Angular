@@ -86,6 +86,11 @@ onSubmit(){this.id= this.currentRoute.snapshot.params['id'];
            
             this.refresh()}
           )}
+          
+  setScore(score: number) {
+    this.operatorScore.score = score;
+  }
+
           showoffre(idTender: any): void {
             this.pro.getproducttender(idTender).subscribe(
             
@@ -93,10 +98,10 @@ onSubmit(){this.id= this.currentRoute.snapshot.params['id'];
            
             )}
             addScore(operatorScore: score,idoperateur:number,idproduct:number): void {
-              this.com.addScore(operatorScore,idoperateur,idproduct).subscribe(()=>{ 
+              this.com.addScore(operatorScore,idoperateur,idproduct).subscribe( 
               
                
-                this.refresh()}
+                
               )}
 
 
