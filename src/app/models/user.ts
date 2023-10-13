@@ -5,6 +5,7 @@ export class User{
     username!:string
     dateNaissance!: Date
     email!:string
+    image!: string;
     score!:string
 
 }

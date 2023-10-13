@@ -25,6 +25,7 @@ import { AssignAgentPopupComponent } from './assign-agent-popup/assign-agent-pop
 import { ListeMissionComponent } from './liste-mission/liste-mission.component';
 import { BilldetailsComponent } from './billdetails/billdetails.component';
 import { BuyerDetailsComponent } from './buyer-details/buyer-details.component';
+import { ListUsersComponent } from './list-users/list-users.component';
 
 
 
@@ -48,7 +49,8 @@ import { BuyerDetailsComponent } from './buyer-details/buyer-details.component';
     AssignAgentPopupComponent,
     ListeMissionComponent,
     BilldetailsComponent,
-    BuyerDetailsComponent
+    BuyerDetailsComponent,
+    ListUsersComponent
 
   ],
   imports: [

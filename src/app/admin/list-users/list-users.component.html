@@ -1,0 +1,22 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+
+<div class="justify-content-center mx-4 my-4">
+    <h2 class="text-center" style="color: brown;">List Of Users </h2>
+    <br>
+    <div class="card-deck">
+      <div class="row">
+        <div *ngFor="let utilisateur of users" class="card" style="width: 28rem;">
+          <img class="card-img-top" src="http://localhost:9090/images/{{ utilisateur.image }}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{ utilisateur.nom }} {{ utilisateur.prenom }}</h5>
+            <p class="card-text">{{ utilisateur.prenom }}</p>
+            <p class="card-text">{{ utilisateur.email }}</p>
+            <div class="d-flex justify-content-between">
+              <button class="btn btn-danger" (click)="deleteUser(utilisateur.id)"><i class="fas fa-trash"></i> Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

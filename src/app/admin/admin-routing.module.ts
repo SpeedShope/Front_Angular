@@ -20,11 +20,13 @@ import { AssignAgentPopupComponent } from './assign-agent-popup/assign-agent-pop
 import { ListeMissionComponent } from './liste-mission/liste-mission.component';
 import { BilldetailsComponent } from './billdetails/billdetails.component';
 import { BuyerDetailsComponent } from './buyer-details/buyer-details.component';
+import { ListUsersComponent } from './list-users/list-users.component';
 
 
 const routes: Routes = [  { path:'', component:AdminComponent, children:[
   {path:'registre',component:RegistreComponent},
   {path:'login',component:LoginComponent},
+  {path:'listusers',component:ListUsersComponent},
   {path: 'addProduct/:id' , component:AddProduitComponent },
   {path:'addcategory',component:AddcategoryComponent},
   {path:'updateadmin',component:UpdateadminComponent},
@@ -43,6 +45,11 @@ const routes: Routes = [  { path:'', component:AdminComponent, children:[
   {path:'home',component:HomeComponent,children:[
     {path:'contracts',component:ContractsDetailsAdminComponent},
       {path:'detail/:id',component:ContractDetailComponent},
+     
+        { path: '', redirectTo: 'listusers', pathMatch: 'full' }, // Redirect to 'listusers' by default
+        { path: 'listusers', component: ListUsersComponent } // Add this route
+        // You can add more child routes for 'home' here if needed
+      
 
   
 

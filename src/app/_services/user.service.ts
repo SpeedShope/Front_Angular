@@ -20,6 +20,9 @@ interface MyProfile {
 export class UserService {
    API_URL = 'http://localhost:9090/api/user/';
    apiUrldelivery='http://localhost:9090/api/user/getusersByroles'
+   private apiUrl = 'http://localhost:9090/api/user/getAllUsers';
+   private deleteurl = 'http://localhost:9090/api/user/DeleteUser';
+
 
   constructor(private http: HttpClient,private ContractService:ContractService) {}
 
@@ -61,5 +64,15 @@ export class UserService {
   getAllDeliveries(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrldelivery);
   }
+  
+  getUsers(): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl);
+  }
+  deleteUserById(id: number): Observable<void> {
+    const url = `${this.deleteurl}/${id}`;
+    return this.http.delete<void>(url);
+  }
+
+
   
 }

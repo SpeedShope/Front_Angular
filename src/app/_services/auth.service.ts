@@ -23,6 +23,9 @@ export class AuthService {
   registerUser(formData: FormData): Observable<any> {
     return this.http.post<any>(`${this.AUTH_API}signup`, formData);
   }
+  registerAdmin(formData: FormData): Observable<any> {
+    return this.http.post<any>(`${this.AUTH_API}signupAdmin`, formData);
+  }
   register(nom: string, prenom: string, username: string, email: string, password: string, dateNaissance: Date,roles: string[]): Observable<any> {
     return this.http.post(
       AUTH_API + 'signup',
@@ -38,6 +41,7 @@ export class AuthService {
       httpOptions
     );
   }
+  
   
 
   login(username: string, password: string): Observable<any> {

@@ -54,9 +54,10 @@
            
             <hr class="sidebar-divider" *ngIf="is_Admin">
             <li class="nav-item"  *ngIf="is_Admin">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                <a class="nav-link collapsed" routerLink="/admin/listusers" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <span>Users</span>
+                    
                 </a>
             </li>
             <hr class="sidebar-divider" *ngIf="is_Supplier">
