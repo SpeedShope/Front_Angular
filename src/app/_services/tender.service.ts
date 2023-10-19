@@ -12,7 +12,7 @@ export class tender {
   private urlGet = 'http://localhost:9090/api/tender/get/';
   private url = 'http://localhost:9090/api/tender/delete';
   private baseUrl = 'http://localhost:9090/api/tender';
- 
+  private apiUrll = 'http://localhost:8000/predict';
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'multipart/form-data' })
   };
@@ -72,6 +72,23 @@ getSimilarProducts(productUrl: string): Observable<Tender[]> {
 deleteTender1(id: number): Observable<any> {
 
   return this.http.delete(this.url+'admin/' + id);
+}
+predict(files: File, staticModel: string, staticCanSave: boolean): Observable<any> {
+  const formData = new FormData();
+  const data = {
+    data: {
+      model: staticModel,
+      can_save: staticCanSave,
+    },
+  };
+
+  formData.append('data', JSON.stringify(data));
+
+ 
+    formData.append('files', files);
+  
+
+  return this.http.post(this.apiUrll, formData);
 }
 
 

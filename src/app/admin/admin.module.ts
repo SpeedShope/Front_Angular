@@ -26,6 +26,8 @@ import { ListeMissionComponent } from './liste-mission/liste-mission.component';
 import { BilldetailsComponent } from './billdetails/billdetails.component';
 import { BuyerDetailsComponent } from './buyer-details/buyer-details.component';
 import { ListUsersComponent } from './list-users/list-users.component';
+import { AddProduittenderComponent } from './add-produittender/add-produit.component';
+import { ListproducttenderComponent } from './listproducttender/listproduct.component';
 
 
 
@@ -34,6 +36,7 @@ import { ListUsersComponent } from './list-users/list-users.component';
   declarations: [
     ListtenderComponent,
     ListproductComponent,
+    ListproducttenderComponent,
     OrderComponent,
     ProfileUserComponent,
     AdminComponent,
@@ -43,6 +46,11 @@ import { ListUsersComponent } from './list-users/list-users.component';
     UpdateadminComponent,
     ListcategoryComponent,
     AddProduitComponent,
+    AddProduittenderComponent,
+
+   
+  
+
     RegistreComponent,
     ContractsDetailsAdminComponent,
     ContractDetailComponent,

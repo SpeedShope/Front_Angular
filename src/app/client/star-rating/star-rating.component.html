@@ -1,0 +1,12 @@
+<!-- star-rating.component.html -->
+<div class="star-rating">
+    <span
+      class="star"
+      *ngFor="let _ of [1, 2, 3, 4, 5]; let i = index"
+      [class.filled]="i < rating"
+      (click)="updateRating(i + 1)"
+    >
+      &#9733; <!-- Utilisez un symbole d'étoile ou une icône de votre choix ici -->
+    </span>
+  </div>
+  

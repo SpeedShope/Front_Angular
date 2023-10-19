@@ -7,5 +7,6 @@ export class Product {
   qte!:number ;
   description!:string ;
   minStock!:number;
+  user_id!:number;
   image!:File ;
 }

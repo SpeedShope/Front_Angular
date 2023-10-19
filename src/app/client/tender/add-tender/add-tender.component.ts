@@ -12,7 +12,9 @@ import { tender } from 'src/app/_services/tender.service';
 export class AddTenderComponent implements OnInit {
   public action!: string;
   public id!: number;
-
+  predictionResponse: string = '';
+  staticModel = 'watch_brand_classifier'; // Remplacez par la valeur statique de 'model'
+  staticCanSave = false; 
   tender: Tender = new Tender();
   image! : File;
   imageFile!: File;
@@ -34,6 +36,7 @@ export class AddTenderComponent implements OnInit {
       { this.action="add";
         this.tender = new Tender();
       }
+     
   }
   ajouter() {
   
@@ -52,7 +55,13 @@ onSubmit() {
     error => console.log(error)
   );
 }
-
+onPredict(): void {
+  this.tenr.predict(this.image, this.staticModel, this.staticCanSave).subscribe((response) => {
+    // Update the predictionResponse variable with the response
+    this.predictionResponse = response;
+    console.log(this.predictionResponse) // Assuming 'brand' is the property you want to display
+  });
+}
 
 
 

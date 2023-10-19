@@ -1,0 +1,17 @@
+.star-rating {
+    display: inline-block;
+    font-size: 24px;
+  }
+  
+  .star {
+    color: gold;
+    cursor: pointer;
+  }
+  
+  .star.full::before {
+    content: "\2605"; /* Étoile pleine Unicode */
+  }
+  
+  .star.empty::before {
+    content: "\2606"; /* Étoile vide Unicode */
+  }

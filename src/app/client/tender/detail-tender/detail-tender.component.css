@@ -1,0 +1,10 @@
+.rating .star {
+    cursor: pointer;
+    font-size: 24px;
+    color: #ddd;
+    transition: color 0.3s; /* Ajoutez une transition de couleur */
+}
+
+.rating .star.selected {
+    color: gold; /* Couleur de l'étoile sélectionnée */
+}

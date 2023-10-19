@@ -30,6 +30,8 @@ import { AddOrderPopupComponent } from './add-order-popup/add-order-popup.compon
 import { ShowproductComponent } from './productClient/showproduct/showproduct.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { StarRatingComponent } from './star-rating/star-rating.component';
+
 
 
 
@@ -53,13 +55,15 @@ import { CheckoutComponent } from './checkout/checkout.component';
     DetailTenderComponent,
     DeliveryagentFormComponent,
     OurServiceFormComponent,
+   
     
 
     AddOrderPopupComponent,
     AddToCardComponent,
     ShowproductComponent,
     DetailTenderComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    
   ],
   imports: [
     CommonModule,
@@ -68,8 +72,9 @@ import { CheckoutComponent } from './checkout/checkout.component';
     ReactiveFormsModule,
     FormsModule,
     SignaturePadModule,
-
-    Ng2SearchPipeModule
+    
+    Ng2SearchPipeModule,
+    
     
   ]
 })

@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { tender } from 'src/app/_services/tender.service';
 import { ProductService } from 'src/app/_services/product.service';
 import { Tender } from 'src/app/models/tender';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listtender',
@@ -26,7 +27,7 @@ export class ListtenderComponent implements OnInit  {
   marque: string = '';
   filteredTenders: any[] = [];
   public tend!: Tender;
-  constructor( private tenderService: tender,private pro:ProductService) { }
+  constructor( private tenderService: tender,private pro:ProductService,private router:Router) { }
  
 
   ngOnInit() {
@@ -79,6 +80,12 @@ export class ListtenderComponent implements OnInit  {
          
        
         )}
+        ProductsOfCategoryRoute(id:number){
+          this.router.navigateByUrl("/admin/listProducttender/"+id)
+        }
+        addProductRoute(id:number){
+          this.router.navigateByUrl("/admin/addProducttender/"+id)
+        }
       
 
 

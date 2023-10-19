@@ -16,11 +16,13 @@ import { ProfileUserComponent } from './profile-user/profile-user.component';
 import { ContractsDetailsAdminComponent } from './contracts-details-admin/contracts-details-admin.component';
 import { ContractDetailComponent } from './contract-detail/contract-detail.component';
 import { UpdateadminComponent } from './updateadmin/updateadmin.component';
+import { ListUsersComponent } from './list-users/list-users.component';
+import { AddProduittenderComponent } from './add-produittender/add-produit.component';
 import { AssignAgentPopupComponent } from './assign-agent-popup/assign-agent-popup.component';
 import { ListeMissionComponent } from './liste-mission/liste-mission.component';
 import { BilldetailsComponent } from './billdetails/billdetails.component';
 import { BuyerDetailsComponent } from './buyer-details/buyer-details.component';
-import { ListUsersComponent } from './list-users/list-users.component';
+import { ListproducttenderComponent } from './listproducttender/listproduct.component';
 
 
 const routes: Routes = [  { path:'', component:AdminComponent, children:[
@@ -28,16 +30,19 @@ const routes: Routes = [  { path:'', component:AdminComponent, children:[
   {path:'login',component:LoginComponent},
   {path:'listusers',component:ListUsersComponent},
   {path: 'addProduct/:id' , component:AddProduitComponent },
+  {path: 'addProducttender/:id' , component:AddProduittenderComponent },
   {path:'addcategory',component:AddcategoryComponent},
   {path:'updateadmin',component:UpdateadminComponent},
   {path:'listtender',component:ListtenderComponent},
   {path: 'listProductofcategory/:id' , component:ListproductComponent },
+  
   {path:'missions', component:ListeMissionComponent,children:[
     {path:'billdetails/:id',component:BilldetailsComponent},
     {path:'AgentDetails/:id',component:BuyerDetailsComponent}
 
   ]},
   ]},
+  {path: 'listProducttender/:id' , component:ListproducttenderComponent },
   {path:'order',component:OrderComponent},
   {path: 'user', component: ProfileUserComponent},
   {path:'assign-delivery-agent/:orderId',component:AssignAgentPopupComponent},
